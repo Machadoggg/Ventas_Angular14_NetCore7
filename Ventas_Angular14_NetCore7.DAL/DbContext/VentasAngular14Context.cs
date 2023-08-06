@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Ventas_Angular14_NetCore7.Model;
 
-namespace Ventas_Angular14_NetCore7.Model;
+namespace Ventas_Angular14_NetCore7.DAL.DBContext;
 
 public partial class VentasAngular14Context : DbContext
 {
@@ -10,8 +11,7 @@ public partial class VentasAngular14Context : DbContext
     {
     }
 
-    public VentasAngular14Context(DbContextOptions<VentasAngular14Context> options)
-        : base(options)
+    public VentasAngular14Context(DbContextOptions<VentasAngular14Context> options) : base(options)
     {
     }
 

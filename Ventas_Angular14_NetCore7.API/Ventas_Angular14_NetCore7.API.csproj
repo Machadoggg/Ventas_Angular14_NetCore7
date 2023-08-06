@@ -4,12 +4,17 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Ventas_Angular14_NetCore7_API</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ventas_Angular14_NetCore7.BLL\Ventas_Angular14_NetCore7.BLL.csproj" />
+    <ProjectReference Include="..\Ventas_Angular14_NetCore7.DTO\Ventas_Angular14_NetCore7.DTO.csproj" />
+    <ProjectReference Include="..\Ventas_Angular14_NetCore7.IOC\Ventas_Angular14_NetCore7.IOC.csproj" />
   </ItemGroup>
 
 </Project>

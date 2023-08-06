@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Ventas_Angular14_NetCore7_API.Controllers
+namespace Ventas_Angular14_NetCore7.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

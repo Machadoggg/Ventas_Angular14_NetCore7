@@ -1,4 +1,4 @@
-namespace Ventas_Angular14_NetCore7_API
+namespace Ventas_Angular14_NetCore7.API
 {
     public class WeatherForecast
     {
