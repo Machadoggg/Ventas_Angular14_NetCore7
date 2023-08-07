@@ -1,6 +1,6 @@
 ﻿namespace Ventas_Angular14_NetCore7.DTO
 {
-    public class UsusarioDTO
+    public class UsuarioDTO
     {
         public int IdUsuario { get; set; }
 
