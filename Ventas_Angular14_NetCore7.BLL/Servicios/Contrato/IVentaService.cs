@@ -14,7 +14,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios.Contrato
 
         Task<List<VentaDTO>> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin);
 
-        Task<ReporteDTO> Reporte(string fechaInicio, string fechaFin);
+        Task<List<ReporteDTO>> Reporte(string fechaInicio, string fechaFin);
 
     }
 }
