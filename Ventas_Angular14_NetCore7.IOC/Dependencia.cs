@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Ventas_Angular14_NetCore7.BLL.Servicios;
+using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DAL.DBContext;
 using Ventas_Angular14_NetCore7.DAL.Repositorios;
 using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
@@ -24,6 +26,15 @@ namespace Ventas_Angular14_NetCore7.IOC
             services.AddScoped<IVentaRepository, VentaRepository>();
 
             services.AddAutoMapper(typeof(AutomapperProfile));
+
+            //Agregar las dependencias de todos los servicios
+            services.AddScoped<IRolService, RolService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<IVentaService, VentaService>();
+            services.AddScoped<IDashBoardService, DashBoardService>();
+            services.AddScoped<IMenuService, MenuService>();
         }
     }
 }
