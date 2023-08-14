@@ -34,10 +34,10 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
             {
                 var ventaGenerada = await _ventaRepository.Registrar(_mapper.Map<Venta>(modelo));
 
-                if (ventaGenerada.IdVenta != 0)
+                if (ventaGenerada.IdVenta == 0)
                     throw new Exception("No se pudo crear");
 
-                return _mapper.Map<VentaDTO>(modelo);
+                return _mapper.Map<VentaDTO>(ventaGenerada);
             }
             catch (Exception)
             {
