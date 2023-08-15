@@ -15,7 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.Utility", "Ventas_Angular14_NetCore7.Utility\Ventas_Angular14_NetCore7.Utility.csproj", "{748A6EEE-725E-420F-ADCA-BC4D1E25F6BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventas_Angular14_NetCore7.API", "Ventas_Angular14_NetCore7.API\Ventas_Angular14_NetCore7.API.csproj", "{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.API", "Ventas_Angular14_NetCore7.API\Ventas_Angular14_NetCore7.API.csproj", "{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BD", "BD", "{BCCD54EC-886B-4C0C-8AEC-93207CC1D999}"
+	ProjectSection(SolutionItems) = preProject
+		VentasAngular14_BD.sql = VentasAngular14_BD.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
