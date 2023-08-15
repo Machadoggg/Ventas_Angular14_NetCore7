@@ -35,7 +35,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
 
             ultimaFecha = ultimaFecha.Value.AddDays(restarCantidadDias);
 
-            return tablaVenta.Where(v => v.FechaRegistro.Value == ultimaFecha.Value.Date);
+            return tablaVenta.Where(v => v.FechaRegistro.Value.Date >= ultimaFecha.Value.Date);
         }
 
         private async Task<int> TotalVentasUltimaSemana()
