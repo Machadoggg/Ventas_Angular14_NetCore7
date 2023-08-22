@@ -12,7 +12,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios.Contrato
     {
         Task<List<Producto>> Lista();
         Task<ProductoDTO> Crear(ProductoDTO modelo);
-        Task<bool> Editar(ProductoDTO modelo);
+        Task<bool> Editar(Producto modelo);
         Task<bool> Eliminar(int id);
     }
 }

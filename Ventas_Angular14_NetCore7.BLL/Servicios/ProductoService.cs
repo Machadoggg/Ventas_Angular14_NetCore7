@@ -57,21 +57,22 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
             }
         }
 
-        public async Task<bool> Editar(ProductoDTO modelo)
+        public async Task<bool> Editar(Producto modelo)
         {
             try
             {
-                var productoModelo = _mapper.Map<Producto>(modelo);
-                var productoEncontrado = await _productoRepositorio.Obtener(u => u.IdProducto == productoModelo.IdProducto);
+                var productoEncontrado = await _productoRepositorio.Obtener(u => u.IdProducto == modelo.IdProducto);
 
                 if (productoEncontrado == null)
+                {
                     throw new TaskCanceledException("El producto no existe");
+                }
 
-                productoEncontrado.Nombre = productoModelo.Nombre;
-                productoEncontrado.IdCategoria = productoModelo.IdCategoria;
-                productoEncontrado.Stock = productoModelo.Stock;
-                productoEncontrado.Precio = productoModelo.Precio;
-                productoEncontrado.EsActivo = productoModelo.EsActivo;
+                productoEncontrado.Nombre = modelo.Nombre;
+                productoEncontrado.IdCategoria = modelo.IdCategoria;
+                productoEncontrado.Stock = modelo.Stock;
+                productoEncontrado.Precio = modelo.Precio;
+                productoEncontrado.EsActivo = modelo.EsActivo;
 
                 bool respuesta = await _productoRepositorio.Editar(productoEncontrado);
 
