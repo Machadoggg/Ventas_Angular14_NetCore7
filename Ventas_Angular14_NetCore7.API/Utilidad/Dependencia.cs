@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Ventas_Angular14_NetCore7.API.Utilidad;
 using Ventas_Angular14_NetCore7.BLL.Servicios;
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DAL.DBContext;
 using Ventas_Angular14_NetCore7.DAL.Repositorios;
 using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
-using Ventas_Angular14_NetCore7.API.Utilidad;
-using AutoMapper;
 
 namespace Ventas_Angular14_NetCore7.IOC
 {
