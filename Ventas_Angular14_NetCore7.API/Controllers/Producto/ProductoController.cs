@@ -5,7 +5,7 @@ using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DTO;
 using Ventas_Angular14_NetCore7.API.Utilidad;
 
-namespace Ventas_Angular14_NetCore7.API.Controllers
+namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
 {
     [Route("api/[controller]")]
     [ApiController]
