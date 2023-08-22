@@ -40,7 +40,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
             }
         }
 
-        public async Task<ProductoDTO> Crear(ProductoDTO modelo)
+        public async Task<Producto> Crear(Producto modelo)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
                 if (productoCreado.IdProducto == 0)
                     throw new TaskCanceledException("No se pudo crear");
 
-                return _mapper.Map<ProductoDTO>(productoCreado);
+                return productoCreado;
             }
             catch (Exception)
             {

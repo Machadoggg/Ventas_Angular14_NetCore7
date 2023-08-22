@@ -11,7 +11,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios.Contrato
     public interface IProductoService
     {
         Task<List<Producto>> Lista();
-        Task<ProductoDTO> Crear(ProductoDTO modelo);
+        Task<Producto> Crear(Producto modelo);
         Task<bool> Editar(Producto modelo);
         Task<bool> Eliminar(int id);
     }
