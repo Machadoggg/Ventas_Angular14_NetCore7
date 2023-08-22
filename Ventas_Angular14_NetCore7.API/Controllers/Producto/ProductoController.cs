@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
@@ -11,11 +11,13 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
     [ApiController]
     public class ProductoController : ControllerBase
     {
-        private IProductoService _productoServicio;
+        private readonly IProductoService _productoServicio;
+        private readonly IMapper _mapper;
 
-        public ProductoController(IProductoService productoService)
+        public ProductoController(IProductoService productoService, IMapper mapper)
         {
             _productoServicio = productoService;
+            _mapper = mapper;
         }
 
 
@@ -27,15 +29,16 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
 
             try
             {
-                respuesta.Ok = true;
-                respuesta.Value = await _productoServicio.Lista();
+                var resultado = await _productoServicio.Lista().ConfigureAwait(false);
+                respuesta.Value = _mapper.Map<List<ProductoDTO>>(resultado);
+                return Ok(respuesta);
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(500, respuesta);
             }
-            return Ok(respuesta);
         }
 
         [HttpPost]
