@@ -25,14 +25,14 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
         }
 
 
-        public async Task<List<ProductoDTO>> Lista()
+        public async Task<List<Producto>> Lista()
         {
             try
             {
                 var queryProducto = await _productoRepositorio.Consultar();
                 var listaProductos = queryProducto.Include(cat => cat.IdCategoriaNavigation).ToList();
 
-                return _mapper.Map<List<ProductoDTO>>(listaProductos);
+                return listaProductos;
             }
             catch (Exception)
             {
