@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using System.Globalization;
+using Ventas_Angular14_NetCore7.API.Controllers.Productos;
 using Ventas_Angular14_NetCore7.DTO;
 using Ventas_Angular14_NetCore7.Model;
 
-namespace Ventas_Angular14_NetCore7.Utility
+namespace Ventas_Angular14_NetCore7.API.Utilidad
 {
     public class AutomapperProfile : Profile
     {

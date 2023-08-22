@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
@@ -14,7 +16,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Ventas_Angular14_NetCore7.BLL\Ventas_Angular14_NetCore7.BLL.csproj" />
     <ProjectReference Include="..\Ventas_Angular14_NetCore7.DTO\Ventas_Angular14_NetCore7.DTO.csproj" />
-    <ProjectReference Include="..\Ventas_Angular14_NetCore7.IOC\Ventas_Angular14_NetCore7.IOC.csproj" />
   </ItemGroup>
 
 </Project>
