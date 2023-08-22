@@ -27,12 +27,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _rolServicio.Lista();
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);

@@ -27,12 +27,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.Lista();
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);
@@ -46,12 +46,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.ValidarCredenciales(login.Correo, login.Clave);
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);
@@ -65,12 +65,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.Crear(usuario);
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);
@@ -84,12 +84,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.Editar(usuario);
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);
@@ -103,12 +103,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.Eliminar(id);
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);

@@ -25,8 +25,6 @@ namespace Ventas_Angular14_NetCore7.TEST
             var mockUsuarioServicio = new Mock<IUsuarioService>();
             var usuarios = new List<UsuarioDTO>
             {
-                //new UsuarioDTO { IdUsuario = 1, NombreCompleto = "codigo estudiantes" },
-                //new UsuarioDTO { IdUsuario = 2, NombreCompleto = "Jorge Machado" }
             };
             mockUsuarioServicio.Setup(servicio => servicio.Lista()).ReturnsAsync(usuarios);
 
@@ -39,7 +37,7 @@ namespace Ventas_Angular14_NetCore7.TEST
             var okResult = Assert.IsType<OkObjectResult>(result);
             var respuesta = Assert.IsType<Response<List<UsuarioDTO>>>(okResult.Value);
 
-            Assert.True(respuesta.Status);
+            Assert.True(respuesta.Ok);
             Assert.Equal(usuarios, respuesta.Value);
         }
 
@@ -64,7 +62,7 @@ namespace Ventas_Angular14_NetCore7.TEST
             var okResult = Assert.IsType<OkObjectResult>(result);
             var respuesta = Assert.IsType<Response<SesionDTO>>(okResult.Value);
 
-            Assert.True(respuesta.Status);
+            Assert.True(respuesta.Ok);
             Assert.Equal(sesion, respuesta.Value);
         }
 

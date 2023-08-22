@@ -27,12 +27,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _productoServicio.Lista();
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);
@@ -46,12 +46,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _productoServicio.Crear(producto);
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);
@@ -65,12 +65,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _productoServicio.Editar(producto);
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);
@@ -84,12 +84,12 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
 
             try
             {
-                respuesta.Status = true;
+                respuesta.Ok = true;
                 respuesta.Value = await _productoServicio.Eliminar(id);
             }
             catch (Exception ex)
             {
-                respuesta.Status = false;
+                respuesta.Ok = false;
                 respuesta.MsgError = ex.Message;
             }
             return Ok(respuesta);

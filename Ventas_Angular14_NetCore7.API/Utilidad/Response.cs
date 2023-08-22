@@ -2,7 +2,7 @@
 {
     public class Response<T>
     {
-        public bool Status { get; set; }
+        public bool Ok{ get; set; }
         public T Value { get; set; }
         public string MsgError { get; set; }
     }
