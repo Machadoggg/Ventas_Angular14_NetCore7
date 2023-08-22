@@ -33,7 +33,7 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
             catch (Exception ex)
             {
                 respuesta.Ok = false;
-                respuesta.MsgError = ex.Message;
+                respuesta.MensajeError = ex.Message;
             }
             return Ok(respuesta);
         }
@@ -52,7 +52,7 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
             catch (Exception ex)
             {
                 respuesta.Ok = false;
-                respuesta.MsgError = ex.Message;
+                respuesta.MensajeError = ex.Message;
             }
             return Ok(respuesta);
         }
@@ -71,7 +71,7 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
             catch (Exception ex)
             {
                 respuesta.Ok = false;
-                respuesta.MsgError = ex.Message;
+                respuesta.MensajeError = ex.Message;
             }
             return Ok(respuesta);
         }
@@ -90,7 +90,7 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
             catch (Exception ex)
             {
                 respuesta.Ok = false;
-                respuesta.MsgError = ex.Message;
+                respuesta.MensajeError = ex.Message;
             }
             return Ok(respuesta);
         }
@@ -109,7 +109,7 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
             catch (Exception ex)
             {
                 respuesta.Ok = false;
-                respuesta.MsgError = ex.Message;
+                respuesta.MensajeError = ex.Message;
             }
             return Ok(respuesta);
         }

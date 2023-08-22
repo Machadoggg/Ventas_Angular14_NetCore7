@@ -4,6 +4,6 @@
     {
         public bool Ok{ get; set; }
         public T Value { get; set; }
-        public string MsgError { get; set; }
+        public string MensajeError { get; set; }
     }
 }
