@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DTO;
+using Microsoft.AspNetCore.Mvc;
 using Ventas_Angular14_NetCore7.API.Utilidad;
+using Ventas_Angular14_NetCore7.Model;
 
 namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
 {
@@ -68,15 +68,17 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Producto
 
             try
             {
-                respuesta.Ok = true;
-                respuesta.Value = await _productoServicio.Editar(producto);
+                var modelo = _mapper.Map<ProductoDTO>(producto);
+                respuesta.Value = await _productoServicio.Editar(modelo);
+                return Ok(respuesta);
+
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(500, respuesta);
             }
-            return Ok(respuesta);
         }
 
         [HttpDelete]
