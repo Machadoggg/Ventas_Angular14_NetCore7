@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
 using Ventas_Angular14_NetCore7.Model;
@@ -9,12 +8,10 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
     public class ProductoService : IProductoService
     {
         private readonly IGenericRepository<Producto> _productoRepositorio;
-        private readonly IMapper _mapper;
 
-        public ProductoService(IGenericRepository<Producto> productoRepositorio, IMapper mapper)
+        public ProductoService(IGenericRepository<Producto> productoRepositorio)
         {
             _productoRepositorio = productoRepositorio;
-            _mapper = mapper;
         }
 
 
@@ -37,7 +34,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
         {
             try
             {
-                var productoCreado = await _productoRepositorio.Crear(_mapper.Map<Producto>(modelo));
+                var productoCreado = await _productoRepositorio.Crear(modelo);
 
                 if (productoCreado.IdProducto == 0)
                     throw new TaskCanceledException("No se pudo crear");
