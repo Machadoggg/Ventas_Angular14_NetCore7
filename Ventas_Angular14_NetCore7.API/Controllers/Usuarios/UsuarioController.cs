@@ -1,21 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DTO;
 using Ventas_Angular14_NetCore7.API.Utilidad;
 
-namespace Ventas_Angular14_NetCore7.API.Controllers
+namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioService _usuarioServicio;
+        private readonly IMapper _mapper;
 
-        public UsuarioController(IUsuarioService usuarioServicio)
+        public UsuarioController(IUsuarioService usuarioServicio, IMapper mapper)
         {
             _usuarioServicio = usuarioServicio;
+            _mapper = mapper;
         }
 
 
@@ -27,15 +30,17 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
+                var resultado = await _usuarioServicio.Lista().ConfigureAwait(false);
+                respuesta.Value = _mapper.Map<List<UsuarioDTO>>(resultado);
                 respuesta.Ok = true;
-                respuesta.Value = await _usuarioServicio.Lista();
+                return Ok(respuesta);
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(404, respuesta);
             }
-            return Ok(respuesta);
         }
 
         [HttpPost]

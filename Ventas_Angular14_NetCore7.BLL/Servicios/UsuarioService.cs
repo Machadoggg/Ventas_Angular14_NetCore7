@@ -19,14 +19,14 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
         }
 
 
-        public async Task<List<UsuarioDTO>> Lista()
+        public async Task<List<Usuario>> Lista()
         {
             try
             {
                 var queryUsuario = await _usuarioRepositorio.Consultar();
                 var listaUsuarios = queryUsuario.Include(rol => rol.IdRolNavigation).ToList();
 
-                return _mapper.Map<List<UsuarioDTO>>(listaUsuarios);
+                return listaUsuarios;
             }
             catch (Exception)
             {
@@ -109,7 +109,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
             {
                 var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.IdUsuario == id);
 
-                if (usuarioEncontrado == null) 
+                if (usuarioEncontrado == null)
                     throw new TaskCanceledException("El usuario no existe");
 
                 bool respuesta = await _usuarioRepositorio.Eliminar(usuarioEncontrado);
@@ -124,5 +124,5 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
                 throw;
             }
         }
-    } 
+    }
 }
