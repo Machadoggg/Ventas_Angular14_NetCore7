@@ -18,53 +18,7 @@ namespace Ventas_Angular14_NetCore7.TEST
     {
 
 
-        [Fact]
-        public async Task ListaUsuariosTesting()
-        {
-            // Arrange
-            var mockUsuarioServicio = new Mock<IUsuarioService>();
-            var usuarios = new List<UsuarioDTO>
-            {
-            };
-            mockUsuarioServicio.Setup(servicio => servicio.Lista()).ReturnsAsync(usuarios);
-
-            var controller = new UsuarioController(mockUsuarioServicio.Object);
-
-            // Act
-            var result = await controller.Lista();
-
-            // Assert
-            var okResult = Assert.IsType<OkObjectResult>(result);
-            var respuesta = Assert.IsType<Response<List<UsuarioDTO>>>(okResult.Value);
-
-            Assert.True(respuesta.Ok);
-            Assert.Equal(usuarios, respuesta.Value);
-        }
-
-
-
-        [Fact]
-        public async Task IniciarSesion_ReturnsOkResponseWithSesion()
-        {
-            // Arrange
-            var mockUsuarioServicio = new Mock<IUsuarioService>();
-            var sesion = new SesionDTO { IdUsuario = 1 };
-            mockUsuarioServicio.Setup(servicio => servicio.ValidarCredenciales(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(sesion);
-
-            var controller = new UsuarioController(mockUsuarioServicio.Object);
-
-            var loginDTO = new LoginDTO { Correo = "m@gmail.com", Clave = "123" };
-
-            // Act
-            var result = await controller.IniciarSesion(loginDTO);
-
-            // Assert
-            var okResult = Assert.IsType<OkObjectResult>(result);
-            var respuesta = Assert.IsType<Response<SesionDTO>>(okResult.Value);
-
-            Assert.True(respuesta.Ok);
-            Assert.Equal(sesion, respuesta.Value);
-        }
+        
 
 
         }

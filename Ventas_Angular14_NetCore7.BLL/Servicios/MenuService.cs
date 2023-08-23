@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using AutoMapper;
-using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
+﻿using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
-using Ventas_Angular14_NetCore7.DTO;
 using Ventas_Angular14_NetCore7.Model;
 
 namespace Ventas_Angular14_NetCore7.BLL.Servicios
@@ -17,20 +9,17 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
         private readonly IGenericRepository<Usuario> _usuarioRepositorio;
         private readonly IGenericRepository<MenuRol> _menuRolRepositorio;
         private readonly IGenericRepository<Menu> _menuRepositorio;
-        private readonly IMapper _mapper;
 
-        public MenuService(IGenericRepository<Usuario> usuarioRepositorio, 
-            IGenericRepository<MenuRol> menuRolRepositorio, 
-            IGenericRepository<Menu> menuRepositorio, 
-            IMapper mapper)
+        public MenuService(IGenericRepository<Usuario> usuarioRepositorio,
+            IGenericRepository<MenuRol> menuRolRepositorio,
+            IGenericRepository<Menu> menuRepositorio)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _menuRolRepositorio = menuRolRepositorio;
             _menuRepositorio = menuRepositorio;
-            _mapper = mapper;
         }
 
-        public async Task<List<MenuDTO>> Lista(int idUsuario)
+        public async Task<List<Menu>> Lista(int idUsuario)
         {
             IQueryable<Usuario> tablaUsuario = await _usuarioRepositorio.Consultar(u => u.IdUsuario == idUsuario);
             IQueryable<MenuRol> tablaMenuRol = await _menuRolRepositorio.Consultar();
@@ -45,7 +34,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
                                                    select m).AsQueryable();
 
                 var listaMenus = tablaResultado.ToList();
-                return _mapper.Map<List<MenuDTO>>(listaMenus); 
+                return listaMenus;
             }
             catch (Exception)
             {

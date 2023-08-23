@@ -1,21 +1,23 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-
-using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
-using Ventas_Angular14_NetCore7.DTO;
 using Ventas_Angular14_NetCore7.API.Utilidad;
+using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
+using Ventas_Angular14_NetCore7.API.Controllers.Menus;
+using Ventas_Angular14_NetCore7.DTO;
 
-namespace Ventas_Angular14_NetCore7.API.Controllers
+namespace Ventas_Angular14_NetCore7.API.Controllers.Menus
 {
     [Route("api/[controller]")]
     [ApiController]
     public class MenuController : ControllerBase
     {
         private readonly IMenuService _menuServicio;
+        private readonly IMapper _mapper;
 
-        public MenuController(IMenuService menuServicio)
+        public MenuController(IMenuService menuServicio, IMapper mapper)
         {
             _menuServicio = menuServicio;
+            _mapper = mapper;
         }
 
 
@@ -27,15 +29,17 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
+                var resultado = await _menuServicio.Lista(idUsuario).ConfigureAwait(false);
+                respuesta.Value = _mapper.Map<List<MenuDTO>>(resultado);
                 respuesta.Ok = true;
-                respuesta.Value = await _menuServicio.Lista(idUsuario);
+                return Ok(respuesta);
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(404, respuesta);
             }
-            return Ok(respuesta);
         }
     }
 }
