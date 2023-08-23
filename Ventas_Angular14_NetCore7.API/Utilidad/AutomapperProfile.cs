@@ -4,6 +4,7 @@ using Ventas_Angular14_NetCore7.API.Controllers.Productos;
 using Ventas_Angular14_NetCore7.API.Controllers.Usuarios;
 using Ventas_Angular14_NetCore7.Model;
 using Ventas_Angular14_NetCore7.DTO;
+using Ventas_Angular14_NetCore7.API.Controllers.Ventas;
 
 namespace Ventas_Angular14_NetCore7.API.Utilidad
 {

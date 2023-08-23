@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
 using Ventas_Angular14_NetCore7.DTO;
@@ -28,7 +22,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
         }
 
 
-        public async Task<VentaDTO> Registrar(VentaDTO modelo)
+        public async Task<Venta> Registrar(Venta modelo)
         {
             try
             {
@@ -37,14 +31,14 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
                 if (ventaGenerada.IdVenta == 0)
                     throw new Exception("No se pudo crear");
 
-                return _mapper.Map<VentaDTO>(ventaGenerada);
+                return ventaGenerada;
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        public async Task<List<VentaDTO>> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin)
+        public async Task<List<Venta>> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin)
         {
             IQueryable<Venta> query = await _ventaRepository.Consultar();
             var listaResultado = new List<Venta>();
@@ -62,7 +56,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
                     ).Include(dv => dv.DetalleVenta)
                     .ThenInclude(p => p.IdProductoNavigation)
                     .ToListAsync();
-                
+
 
                 }
                 else
@@ -73,13 +67,13 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
                     .ThenInclude(p => p.IdProductoNavigation)
                     .ToListAsync();
                 }
+                return listaResultado;
             }
             catch (Exception)
             {
                 throw;
             }
 
-            return _mapper.Map<List<VentaDTO>>(listaResultado);
 
         }
 
@@ -97,9 +91,9 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
                 listaResultado = await query
                     .Include(p => p.IdProductoNavigation)
                     .Include(v => v.IdVentaNavigation)
-                    .Where(dv => 
+                    .Where(dv =>
                            dv.IdVentaNavigation.FechaRegistro.Value.Date >= fecha_Inicio.Date &&
-                           dv.IdVentaNavigation.FechaRegistro.Value.Date <= fecha_Fin.Date                    
+                           dv.IdVentaNavigation.FechaRegistro.Value.Date <= fecha_Fin.Date
                         ).ToListAsync();
             }
             catch (Exception)

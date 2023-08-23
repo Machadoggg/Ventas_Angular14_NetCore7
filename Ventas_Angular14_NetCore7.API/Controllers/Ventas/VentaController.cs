@@ -1,21 +1,23 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-
+using Ventas_Angular14_NetCore7.API.Utilidad;
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DTO;
-using Ventas_Angular14_NetCore7.API.Utilidad;
+using Ventas_Angular14_NetCore7.Model;
 
-namespace Ventas_Angular14_NetCore7.API.Controllers
+namespace Ventas_Angular14_NetCore7.API.Controllers.Ventas
 {
     [Route("api/[controller]")]
     [ApiController]
     public class VentaController : ControllerBase
     {
         private readonly IVentaService _ventaServicio;
+        private readonly IMapper _mapper;
 
-        public VentaController(IVentaService ventaServicio)
+        public VentaController(IVentaService ventaServicio, IMapper mapper)
         {
             _ventaServicio = ventaServicio;
+            _mapper = mapper;
         }
 
 
@@ -27,15 +29,18 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
+                var modelo = _mapper.Map<Venta>(venta);
+                var ventaCreada = await _ventaServicio.Registrar(modelo);
+                respuesta.Value = _mapper.Map<VentaDTO>(ventaCreada);
                 respuesta.Ok = true;
-                respuesta.Value = await _ventaServicio.Registrar(venta);
+                return Ok(respuesta);
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(400, respuesta);
             }
-            return Ok(respuesta);
         }
 
         [HttpGet]
@@ -50,15 +55,17 @@ namespace Ventas_Angular14_NetCore7.API.Controllers
 
             try
             {
+                var resultado = await _ventaServicio.Historial(buscarPor, numeroVenta, fechaInicio, fechaFin).ConfigureAwait(false);
                 respuesta.Ok = true;
-                respuesta.Value = await _ventaServicio.Historial(buscarPor, numeroVenta, fechaInicio, fechaFin);
+                respuesta.Value = _mapper.Map<List<VentaDTO>>(resultado);
+                return Ok(respuesta);
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(404, respuesta);
             }
-            return Ok(respuesta);
         }
 
         [HttpGet]

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Ventas_Angular14_NetCore7.DTO;
+﻿using Ventas_Angular14_NetCore7.DTO;
+using Ventas_Angular14_NetCore7.Model;
 
 namespace Ventas_Angular14_NetCore7.BLL.Servicios.Contrato
 {
     public interface IVentaService
     {
-        Task<VentaDTO> Registrar(VentaDTO modelo);
+        Task<Venta> Registrar(Venta modelo);
 
-        Task<List<VentaDTO>> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin);
+        Task<List<Venta>> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin);
 
         Task<List<ReporteDTO>> Reporte(string fechaInicio, string fechaFin);
 
