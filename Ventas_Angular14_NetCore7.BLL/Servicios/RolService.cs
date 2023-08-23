@@ -10,21 +10,19 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
     public class RolService : IRolService
     {
         private readonly IGenericRepository<Rol> _rolRepositorio;
-        private readonly IMapper _mapper;
 
-        public RolService(IGenericRepository<Rol> rolRepositorio, IMapper mapper)
+        public RolService(IGenericRepository<Rol> rolRepositorio)
         {
             _rolRepositorio = rolRepositorio;
-            _mapper = mapper;
         }
 
-        public async Task<List<RolDTO>> Lista()
+        public async Task<List<Rol>> Lista()
         {
             try
             {
                 //Convertir (Rol) a (RolDTO) en forma de lista
                 var listaRoles = await _rolRepositorio.Consultar();
-                return _mapper.Map<List<RolDTO>>(listaRoles);
+                return listaRoles.ToList();
             }
             catch (Exception)
             {
