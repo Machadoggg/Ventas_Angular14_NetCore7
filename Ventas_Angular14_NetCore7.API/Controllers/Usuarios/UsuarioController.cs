@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DTO;
 using Ventas_Angular14_NetCore7.API.Utilidad;
+using Ventas_Angular14_NetCore7.Model;
 
 namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
 {
@@ -89,15 +90,17 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
 
             try
             {
+                var modelo = _mapper.Map<Usuario>(usuario);
                 respuesta.Ok = true;
-                respuesta.Value = await _usuarioServicio.Editar(usuario);
+                respuesta.Value = await _usuarioServicio.Editar(modelo);
+                return Ok(respuesta);
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(400, respuesta);
             }
-            return Ok(respuesta);
         }
 
         [HttpDelete]

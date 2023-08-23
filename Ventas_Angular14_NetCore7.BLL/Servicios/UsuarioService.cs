@@ -74,21 +74,20 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
             }
         }
 
-        public async Task<bool> Editar(UsuarioDTO modelo)
+        public async Task<bool> Editar(Usuario modelo)
         {
             try
             {
-                var usuarioModelo = _mapper.Map<Usuario>(modelo);
-                var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.IdUsuario == usuarioModelo.IdUsuario);
+                var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.IdUsuario == modelo.IdUsuario);
 
                 if (usuarioEncontrado == null)
                     throw new TaskCanceledException("El usuario no existe");
 
-                usuarioEncontrado.NombreCompleto = usuarioModelo.NombreCompleto;
-                usuarioEncontrado.Correo = usuarioModelo.Correo;
-                usuarioEncontrado.IdRol = usuarioModelo.IdRol;
-                usuarioEncontrado.Clave = usuarioModelo.Clave;
-                usuarioEncontrado.EsActivo = usuarioModelo.EsActivo;
+                usuarioEncontrado.NombreCompleto = modelo.NombreCompleto;
+                usuarioEncontrado.Correo = modelo.Correo;
+                usuarioEncontrado.IdRol = modelo.IdRol;
+                usuarioEncontrado.Clave = modelo.Clave;
+                usuarioEncontrado.EsActivo = modelo.EsActivo;
 
                 bool respuesta = await _usuarioRepositorio.Editar(usuarioEncontrado);
 
