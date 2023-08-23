@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AutoMapper;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using AutoMapper;
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
 using Ventas_Angular14_NetCore7.DTO;
@@ -30,7 +24,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
         //devolver un rango de ventas de acuerdo a las fechas
         //apartir de hoy se define cuantos dias retrocede para la consulta
         private IQueryable<Venta> RetornarVentas(IQueryable<Venta> tablaVenta, int restarCantidadDias)
-        { 
+        {
             DateTime? ultimaFecha = tablaVenta.OrderByDescending(v => v.FechaRegistro).Select(v => v.FechaRegistro).First();
 
             ultimaFecha = ultimaFecha.Value.AddDays(restarCantidadDias);
@@ -39,7 +33,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
         }
 
         private async Task<int> TotalVentasUltimaSemana()
-        { 
+        {
             int total = 0;
             IQueryable<Venta> _ventaQuery = await _ventaRepository.Consultar();
 
@@ -53,7 +47,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
         }
 
         private async Task<string> TotalIngresosUltimaSemana()
-        { 
+        {
             decimal resultado = 0;
             IQueryable<Venta> _ventaQuery = await _ventaRepository.Consultar();
 
@@ -69,7 +63,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
 
 
         private async Task<int> TotalProductos()
-        { 
+        {
             IQueryable<Producto> _productoQuery = await _productoRepositorio.Consultar();
 
             int total = _productoQuery.Count();
@@ -78,7 +72,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
 
 
         private async Task<Dictionary<string, int>> VentasUltimaSemana()
-        { 
+        {
             Dictionary<string, int> resultado = new Dictionary<string, int>();
 
             IQueryable<Venta> _ventaQuery = await _ventaRepository.Consultar();
@@ -89,7 +83,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
 
                 resultado = tablaVenta
                     .GroupBy(v => v.FechaRegistro.Value.Date).OrderBy(g => g.Key)
-                    .Select(dv => new { fecha = dv.Key.ToString("dd/MM/yyyy"),total = dv.Count() })
+                    .Select(dv => new { fecha = dv.Key.ToString("dd/MM/yyyy"), total = dv.Count() })
                     .ToDictionary(keySelector: r => r.fecha, elementSelector: r => r.total);
             }
 
