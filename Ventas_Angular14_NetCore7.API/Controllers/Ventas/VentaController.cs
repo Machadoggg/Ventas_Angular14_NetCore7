@@ -32,7 +32,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Ventas
                 var modelo = _mapper.Map<Venta>(venta);
                 var ventaCreada = await _ventaServicio.Registrar(modelo);
                 respuesta.Value = _mapper.Map<VentaDTO>(ventaCreada);
-                respuesta.Ok = true;
                 return Ok(respuesta);
             }
             catch (Exception ex)
@@ -56,7 +55,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Ventas
             try
             {
                 var resultado = await _ventaServicio.Historial(buscarPor, numeroVenta, fechaInicio, fechaFin).ConfigureAwait(false);
-                respuesta.Ok = true;
                 respuesta.Value = _mapper.Map<List<VentaDTO>>(resultado);
                 return Ok(respuesta);
             }
@@ -77,7 +75,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Ventas
 
             try
             {
-                respuesta.Ok = true;
                 respuesta.Value = await _ventaServicio.Reporte(fechaInicio, fechaFin);
             }
             catch (Exception ex)

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Microsoft.AspNetCore.Mvc;
 using Ventas_Angular14_NetCore7.API.Utilidad;
+using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.Model;
 
 namespace Ventas_Angular14_NetCore7.API.Controllers.Productos

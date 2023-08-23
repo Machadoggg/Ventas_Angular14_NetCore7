@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Ventas_Angular14_NetCore7.API.Utilidad;
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
-using Ventas_Angular14_NetCore7.API.Controllers.Menus;
-using Ventas_Angular14_NetCore7.DTO;
 
 namespace Ventas_Angular14_NetCore7.API.Controllers.Menus
 {
@@ -31,7 +29,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Menus
             {
                 var resultado = await _menuServicio.Lista(idUsuario).ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<MenuDTO>>(resultado);
-                respuesta.Ok = true;
                 return Ok(respuesta);
             }
             catch (Exception ex)

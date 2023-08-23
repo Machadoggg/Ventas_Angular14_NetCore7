@@ -30,7 +30,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Productos
             {
                 var resultado = await _categoriaServicio.Lista().ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<CategoriaDTO>>(resultado);
-                respuesta.Ok = true;
                 return Ok(respuesta);
             }
             catch (Exception ex)

@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using Ventas_Angular14_NetCore7.API.Utilidad;
 using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DTO;
-using Ventas_Angular14_NetCore7.API.Utilidad;
 using Ventas_Angular14_NetCore7.Model;
 
 namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
@@ -33,7 +31,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
             {
                 var resultado = await _usuarioServicio.Lista().ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<UsuarioDTO>>(resultado);
-                respuesta.Ok = true;
                 return Ok(respuesta);
             }
             catch (Exception ex)
@@ -52,7 +49,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
 
             try
             {
-                respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.ValidarCredenciales(login.Correo, login.Clave);
             }
             catch (Exception ex)
@@ -74,7 +70,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
                 var modelo = _mapper.Map<Usuario>(usuario);
                 var usuarioCreado = await _usuarioServicio.Crear(modelo);
                 respuesta.Value = _mapper.Map<UsuarioDTO>(usuarioCreado);
-                respuesta.Ok = true;
                 return Ok(respuesta);
             }
             catch (Exception ex)
@@ -94,7 +89,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
             try
             {
                 var modelo = _mapper.Map<Usuario>(usuario);
-                respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.Editar(modelo);
                 return Ok(respuesta);
             }
@@ -114,7 +108,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
 
             try
             {
-                respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.Eliminar(id);
                 return Ok(respuesta);
             }

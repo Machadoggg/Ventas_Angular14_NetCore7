@@ -29,7 +29,6 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
             {
                 var resultado = await _rolServicio.Lista().ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<RolDTO>>(resultado);
-                respuesta.Ok = true;
                 return Ok(respuesta);
             }
             catch (Exception ex)
