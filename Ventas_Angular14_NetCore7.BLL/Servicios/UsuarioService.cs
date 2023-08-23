@@ -54,7 +54,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
             }
         }
 
-        public async Task<UsuarioDTO> Crear(UsuarioDTO modelo)
+        public async Task<Usuario> Crear(Usuario modelo)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios
 
                 var query = await _usuarioRepositorio.Consultar(u => u.IdUsuario == usuarioCreado.IdUsuario);
                 usuarioCreado = query.Include(rol => rol.IdRolNavigation).First();
-                return _mapper.Map<UsuarioDTO>(usuarioCreado);
+                return usuarioCreado;
 
             }
             catch (Exception)

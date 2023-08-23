@@ -71,15 +71,18 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
 
             try
             {
+                var modelo = _mapper.Map<Usuario>(usuario);
+                var usuarioCreado = await _usuarioServicio.Crear(modelo);
+                respuesta.Value = _mapper.Map<UsuarioDTO>(usuarioCreado);
                 respuesta.Ok = true;
-                respuesta.Value = await _usuarioServicio.Crear(usuario);
+                return Ok(respuesta);
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(400, respuesta);
             }
-            return Ok(respuesta);
         }
 
         [HttpPut]
@@ -113,13 +116,14 @@ namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
             {
                 respuesta.Ok = true;
                 respuesta.Value = await _usuarioServicio.Eliminar(id);
+                return Ok(respuesta);
             }
             catch (Exception ex)
             {
                 respuesta.Ok = false;
                 respuesta.MensajeError = ex.Message;
+                return StatusCode(400, respuesta);
             }
-            return Ok(respuesta);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Ventas_Angular14_NetCore7.BLL.Servicios.Contrato
     {
         Task<List<Usuario>> Lista();
         Task<SesionDTO> ValidarCredenciales(string correo, string clave);
-        Task<UsuarioDTO> Crear(UsuarioDTO modelo);
+        Task<Usuario> Crear(Usuario modelo);
         Task<bool> Editar(Usuario modelo);
         Task<bool> Eliminar(int id);
     }
