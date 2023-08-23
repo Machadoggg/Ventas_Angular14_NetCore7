@@ -1,4 +1,4 @@
-﻿namespace Ventas_Angular14_NetCore7.DTO
+﻿namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
 {
     public class LoginDTO
     {
