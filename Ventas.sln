@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.DAL", "Ventas_Angular14_NetCore7.DAL\Ventas_Angular14_NetCore7.DAL.csproj", "{DFA0C37D-F6F5-4D51-94B0-C5C80FCA9339}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.BLL", "Ventas_Angular14_NetCore7.BLL\Ventas_Angular14_NetCore7.BLL.csproj", "{56B3403D-AA1D-4A38-93EB-1303C0AC18F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.BLL", "Ventas.BLL\Ventas.BLL.csproj", "{56B3403D-AA1D-4A38-93EB-1303C0AC18F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.Model", "Ventas_Angular14_NetCore7.Model\Ventas_Angular14_NetCore7.Model.csproj", "{FFA9A55D-B574-4199-A50E-E67DAE45EC01}"
 EndProject

@@ -24,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ventas_Angular14_NetCore7.API\Ventas_Angular14_NetCore7.API.csproj" />
-    <ProjectReference Include="..\Ventas_Angular14_NetCore7.BLL\Ventas_Angular14_NetCore7.BLL.csproj" />
+    <ProjectReference Include="..\Ventas.API\Ventas.API.csproj" />
+    <ProjectReference Include="..\Ventas.BLL\Ventas.BLL.csproj" />
   </ItemGroup>
 
 </Project>
