@@ -13,10 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.API", "Ventas.API\Ve
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BD", "BD", "{BCCD54EC-886B-4C0C-8AEC-93207CC1D999}"
 	ProjectSection(SolutionItems) = preProject
-		VentasAngular14_BD.sql = VentasAngular14_BD.sql
+		Ventas_BD.sql = Ventas_BD.sql
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.TEST", "Ventas_Angular14_NetCore7.TEST\Ventas_Angular14_NetCore7.TEST.csproj", "{782F3C5D-A4F6-4C72-904C-0F4C243A2116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.TEST", "Ventas.TEST\Ventas.TEST.csproj", "{782F3C5D-A4F6-4C72-904C-0F4C243A2116}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
