@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.Model", "Ventas_Angular14_NetCore7.Model\Ventas_Angular14_NetCore7.Model.csproj", "{FFA9A55D-B574-4199-A50E-E67DAE45EC01}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.DTO", "Ventas_Angular14_NetCore7.DTO\Ventas_Angular14_NetCore7.DTO.csproj", "{0CB1896B-C4D7-4164-928E-D976213BFA65}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.API", "Ventas_Angular14_NetCore7.API\Ventas_Angular14_NetCore7.API.csproj", "{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BD", "BD", "{BCCD54EC-886B-4C0C-8AEC-93207CC1D999}"
@@ -38,10 +36,6 @@ Global
 		{FFA9A55D-B574-4199-A50E-E67DAE45EC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFA9A55D-B574-4199-A50E-E67DAE45EC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFA9A55D-B574-4199-A50E-E67DAE45EC01}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0CB1896B-C4D7-4164-928E-D976213BFA65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CB1896B-C4D7-4164-928E-D976213BFA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CB1896B-C4D7-4164-928E-D976213BFA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CB1896B-C4D7-4164-928E-D976213BFA65}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}.Release|Any CPU.ActiveCfg = Release|Any CPU

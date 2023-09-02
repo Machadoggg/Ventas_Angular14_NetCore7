@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
+﻿using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
 using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
-using Ventas_Angular14_NetCore7.DTO;
 using Ventas_Angular14_NetCore7.Model;
 
 

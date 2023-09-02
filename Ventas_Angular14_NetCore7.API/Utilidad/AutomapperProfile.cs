@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using System.Globalization;
+using Ventas_Angular14_NetCore7.API.Controllers.Menus;
 using Ventas_Angular14_NetCore7.API.Controllers.Productos;
 using Ventas_Angular14_NetCore7.API.Controllers.Usuarios;
-using Ventas_Angular14_NetCore7.Model;
-using Ventas_Angular14_NetCore7.DTO;
 using Ventas_Angular14_NetCore7.API.Controllers.Ventas;
-using Ventas_Angular14_NetCore7.API.Controllers.Menus;
+using Ventas_Angular14_NetCore7.BLL;
+using Ventas_Angular14_NetCore7.DTO;
+using Ventas_Angular14_NetCore7.Model;
 
 namespace Ventas_Angular14_NetCore7.API.Utilidad
 {

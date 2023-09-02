@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ventas_Angular14_NetCore7.DAL\Ventas_Angular14_NetCore7.DAL.csproj" />
-    <ProjectReference Include="..\Ventas_Angular14_NetCore7.DTO\Ventas_Angular14_NetCore7.DTO.csproj" />
     <ProjectReference Include="..\Ventas_Angular14_NetCore7.Model\Ventas_Angular14_NetCore7.Model.csproj" />
   </ItemGroup>
 
