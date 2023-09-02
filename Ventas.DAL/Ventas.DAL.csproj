@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ventas_Angular14_NetCore7.Model\Ventas_Angular14_NetCore7.Model.csproj" />
+    <ProjectReference Include="..\Ventas.Model\Ventas.Model.csproj" />
   </ItemGroup>
 
 </Project>
