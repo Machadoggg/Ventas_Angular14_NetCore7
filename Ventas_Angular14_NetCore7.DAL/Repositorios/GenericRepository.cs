@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
-using Ventas_Angular14_NetCore7.DAL.DBContext;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using Ventas_Angular14_NetCore7.DAL.DBContext;
+using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
 
 
 namespace Ventas_Angular14_NetCore7.DAL.Repositorios

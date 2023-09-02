@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.Model", "Ventas_Angular14_NetCore7.Model\Ventas_Angular14_NetCore7.Model.csproj", "{FFA9A55D-B574-4199-A50E-E67DAE45EC01}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas_Angular14_NetCore7.API", "Ventas_Angular14_NetCore7.API\Ventas_Angular14_NetCore7.API.csproj", "{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.API", "Ventas.API\Ventas.API.csproj", "{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BD", "BD", "{BCCD54EC-886B-4C0C-8AEC-93207CC1D999}"
 	ProjectSection(SolutionItems) = preProject
