@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Ventas_Angular14_NetCore7.Model;
+using Ventas.Model;
 
-namespace Ventas_Angular14_NetCore7.DAL.DBContext;
+namespace Ventas.DAL.DBContext;
 
 public partial class VentasAngular14Context : DbContext
 {

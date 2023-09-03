@@ -1,4 +1,4 @@
-﻿namespace Ventas_Angular14_NetCore7.API.Utilidad
+﻿namespace Ventas.API.Utilidad
 {
     public class Response<T>
     {

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
-namespace Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato
+namespace Ventas.DAL.Repositorios.Contrato
 {
 
     //Especifica que (TModel) es una clase con (where TModel : class)

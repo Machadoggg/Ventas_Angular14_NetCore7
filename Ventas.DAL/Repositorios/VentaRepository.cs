@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Ventas_Angular14_NetCore7.DAL.DBContext;
-using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
-using Ventas_Angular14_NetCore7.Model;
+using Ventas.DAL.DBContext;
+using Ventas.DAL.Repositorios.Contrato;
+using Ventas.Model;
 
-namespace Ventas_Angular14_NetCore7.DAL.Repositorios
+namespace Ventas.DAL.Repositorios
 {
     public class VentaRepository : GenericRepository<Venta>, IVentaRepository
     {

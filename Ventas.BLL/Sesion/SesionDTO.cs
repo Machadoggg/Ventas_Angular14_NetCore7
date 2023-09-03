@@ -1,4 +1,4 @@
-﻿namespace Ventas_Angular14_NetCore7.BLL
+﻿namespace Ventas.BLL
 {
     public class SesionDTO
     {

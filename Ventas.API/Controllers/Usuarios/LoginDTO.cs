@@ -1,9 +1,9 @@
-﻿namespace Ventas_Angular14_NetCore7.API.Controllers.Usuarios
+﻿namespace Ventas.API.Controllers.Usuarios
 {
     public class LoginDTO
     {
-        public string? Correo { get; set; }
+        public string Correo { get; set; }
 
-        public string? Clave { get; set; }
+        public string Clave { get; set; }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using Ventas_Angular14_NetCore7.DAL.DBContext;
-using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
+using Ventas.DAL.DBContext;
+using Ventas.DAL.Repositorios.Contrato;
 
 
-namespace Ventas_Angular14_NetCore7.DAL.Repositorios
+namespace Ventas.DAL.Repositorios
 {
     public class GenericRepository<TModelo> : IGenericRepository<TModelo> where TModelo : class
     {

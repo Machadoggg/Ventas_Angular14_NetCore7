@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ventas_Angular14_NetCore7.API.Utilidad;
-using Ventas_Angular14_NetCore7.BLL.Servicios;
-using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
-using Ventas_Angular14_NetCore7.DAL.DBContext;
-using Ventas_Angular14_NetCore7.DAL.Repositorios;
-using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
+using Ventas.BLL.Servicios;
+using Ventas.BLL.Servicios.Contrato;
+using Ventas.DAL.DBContext;
+using Ventas.DAL.Repositorios;
+using Ventas.DAL.Repositorios.Contrato;
 
-namespace Ventas_Angular14_NetCore7.IOC
+namespace Ventas.API.Utilidad
 {
     public static class Dependencia
     {

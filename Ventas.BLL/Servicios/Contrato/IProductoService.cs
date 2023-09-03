@@ -1,6 +1,6 @@
-﻿using Ventas_Angular14_NetCore7.Model;
+﻿using Ventas.Model;
 
-namespace Ventas_Angular14_NetCore7.BLL.Servicios.Contrato
+namespace Ventas.BLL.Servicios.Contrato
 {
     public interface IProductoService
     {

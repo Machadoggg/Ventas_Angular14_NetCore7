@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using System.Globalization;
-using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
-using Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato;
-using Ventas_Angular14_NetCore7.Model;
+using Ventas.BLL.Servicios.Contrato;
+using Ventas.DAL.Repositorios.Contrato;
+using Ventas.Model;
 
-namespace Ventas_Angular14_NetCore7.BLL.Servicios
+namespace Ventas.BLL.Servicios
 {
     public class DashBoardService : IDashBoardService
     {

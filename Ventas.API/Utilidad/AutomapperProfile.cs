@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using System.Globalization;
-using Ventas_Angular14_NetCore7.API.Controllers.Menus;
-using Ventas_Angular14_NetCore7.API.Controllers.Productos;
-using Ventas_Angular14_NetCore7.API.Controllers.Usuarios;
-using Ventas_Angular14_NetCore7.API.Controllers.Ventas;
-using Ventas_Angular14_NetCore7.BLL;
-using Ventas_Angular14_NetCore7.DTO;
-using Ventas_Angular14_NetCore7.Model;
+using Ventas.API.Controllers.Menus;
+using Ventas.API.Controllers.Productos;
+using Ventas.API.Controllers.Usuarios;
+using Ventas.API.Controllers.Ventas;
+using Ventas.BLL;
+using Ventas.DTO;
+using Ventas.Model;
 
-namespace Ventas_Angular14_NetCore7.API.Utilidad
+namespace Ventas.API.Utilidad
 {
     public class AutomapperProfile : Profile
     {
@@ -27,7 +27,7 @@ namespace Ventas_Angular14_NetCore7.API.Utilidad
             CreateMap<Usuario, UsuarioDTO>()
                 .ForMember(destino =>
                     destino.RolDescripcion,
-                    opt => opt.MapFrom(origen => origen.IdRolNavigation.Nombre)
+                    opt => opt.MapFrom(origen => origen.IdRolNavigation!.Nombre)
                  )
                 .ForMember(destino =>
                     destino.EsActivo,
@@ -66,7 +66,7 @@ namespace Ventas_Angular14_NetCore7.API.Utilidad
                  )
                 .ForMember(destino =>
                     destino.Precio,
-                    opt => opt.MapFrom(origen => Convert.ToString(origen.Precio.Value, new CultureInfo("es-CO")))
+                    opt => opt.MapFrom(origen => Convert.ToString(origen.Precio.ToString(), new CultureInfo("es-CO")))
                  )
                 .ForMember(destino =>
                     destino.EsActivo,
@@ -92,7 +92,7 @@ namespace Ventas_Angular14_NetCore7.API.Utilidad
             CreateMap<Venta, VentaDTO>()
                 .ForMember(destino =>
                     destino.TotalTexto,
-                    opt => opt.MapFrom(origen => Convert.ToString(origen.Total.Value, new CultureInfo("es-CO")))
+                    opt => opt.MapFrom(origen => Convert.ToString(origen.Total.ToString(), new CultureInfo("es-CO")))
                  )
                 .ForMember(destino =>
                     destino.FechaRegistro,
@@ -114,11 +114,11 @@ namespace Ventas_Angular14_NetCore7.API.Utilidad
                  )
                 .ForMember(destino =>
                     destino.PrecioTexto,
-                    opt => opt.MapFrom(origen => Convert.ToString(origen.Total.Value, new CultureInfo("es-CO")))
+                    opt => opt.MapFrom(origen => Convert.ToString(origen.Total.ToString(), new CultureInfo("es-CO")))
                  )
                 .ForMember(destino =>
                     destino.TotalTexto,
-                    opt => opt.MapFrom(origen => Convert.ToString(origen.Total.Value, new CultureInfo("es-CO")))
+                    opt => opt.MapFrom(origen => Convert.ToString(origen.Total.ToString(), new CultureInfo("es-CO")))
                  );
 
             CreateMap<DetalleVentaDTO, DetalleVenta>()
@@ -137,7 +137,7 @@ namespace Ventas_Angular14_NetCore7.API.Utilidad
             CreateMap<DetalleVenta, ReporteDTO>()
                 .ForMember(destino =>
                     destino.FechaRegistro,
-                    opt => opt.MapFrom(origen => origen.IdProductoNavigation.FechaRegistro.Value.ToString("dd/MM/yyyy"))
+                    opt => opt.MapFrom(origen => origen.IdProductoNavigation.FechaRegistro.ToString("dd/MM/yyyy"))
                  )
                 .ForMember(destino =>
                     destino.NumeroDocumento,
@@ -157,11 +157,11 @@ namespace Ventas_Angular14_NetCore7.API.Utilidad
                  )
                 .ForMember(destino =>
                     destino.Precio,
-                    opt => opt.MapFrom(origen => Convert.ToString(origen.Precio.Value, new CultureInfo("es-CO")))
+                    opt => opt.MapFrom(origen => Convert.ToString(origen.Precio.ToString(), new CultureInfo("es-CO")))
                  )
                 .ForMember(destino =>
                     destino.Total,
-                    opt => opt.MapFrom(origen => Convert.ToString(origen.Total.Value, new CultureInfo("es-CO")))
+                    opt => opt.MapFrom(origen => Convert.ToString(origen.Total.ToString(), new CultureInfo("es-CO")))
                  );
             #endregion Reporte
 

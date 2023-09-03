@@ -1,4 +1,4 @@
-using Ventas_Angular14_NetCore7.IOC;
+using Ventas.API.Utilidad;
 
 
 var builder = WebApplication.CreateBuilder(args);

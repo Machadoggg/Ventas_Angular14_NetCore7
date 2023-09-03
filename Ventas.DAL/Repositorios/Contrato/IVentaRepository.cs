@@ -1,6 +1,6 @@
-﻿using Ventas_Angular14_NetCore7.Model;
+﻿using Ventas.Model;
 
-namespace Ventas_Angular14_NetCore7.DAL.Repositorios.Contrato
+namespace Ventas.DAL.Repositorios.Contrato
 {
     //Aqui especificamos que vamos a trabajar con el
     //modelo de (Venta) en especifico (IGenericRepository<Venta>)

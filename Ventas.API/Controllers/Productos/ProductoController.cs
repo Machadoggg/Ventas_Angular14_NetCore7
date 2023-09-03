@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Ventas_Angular14_NetCore7.API.Utilidad;
-using Ventas_Angular14_NetCore7.BLL.Servicios.Contrato;
-using Ventas_Angular14_NetCore7.Model;
+using Ventas.API.Utilidad;
+using Ventas.BLL.Servicios.Contrato;
+using Ventas.Model;
 
-namespace Ventas_Angular14_NetCore7.API.Controllers.Productos
+namespace Ventas.API.Controllers.Productos
 {
     [Route("api/[controller]")]
     [ApiController]

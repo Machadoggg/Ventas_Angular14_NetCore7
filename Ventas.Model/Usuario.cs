@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Ventas_Angular14_NetCore7.Model;
-
-public partial class Usuario
+﻿namespace Ventas.Model
 {
-    public int IdUsuario { get; set; }
+    public partial class Usuario
+    {
+        public int IdUsuario { get; set; }
 
-    public string? NombreCompleto { get; set; }
+        public string NombreCompleto { get; set; }
 
-    public string? Correo { get; set; }
+        public string Correo { get; set; }
 
-    public int? IdRol { get; set; }
+        public int IdRol { get; set; }
 
-    public string? Clave { get; set; }
+        public string Clave { get; set; }
 
-    public bool? EsActivo { get; set; }
+        public bool EsActivo { get; set; }
 
-    public DateTime? FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
-    public virtual Rol? IdRolNavigation { get; set; }
+        public virtual Rol IdRolNavigation { get; set; }
+    }
 }
