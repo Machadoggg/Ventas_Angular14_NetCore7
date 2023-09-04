@@ -4,15 +4,15 @@ using System.Globalization;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.VentaServices
+namespace Ventas.BusinessLogicLayer.Ventas
 {
-    public class VentaService : IVentaService
+    public class VentaManager : IVentaManager
     {
         private readonly IVentaRepository _ventaRepository;
         private readonly IGenericRepository<DetalleVenta> _detalleVentaRepositorio;
         private readonly IMapper _mapper;
 
-        public VentaService(IVentaRepository ventaRepository, IGenericRepository<DetalleVenta> detalleVentaRepositorio, IMapper mapper)
+        public VentaManager(IVentaRepository ventaRepository, IGenericRepository<DetalleVenta> detalleVentaRepositorio, IMapper mapper)
         {
             _ventaRepository = ventaRepository;
             _detalleVentaRepositorio = detalleVentaRepositorio;

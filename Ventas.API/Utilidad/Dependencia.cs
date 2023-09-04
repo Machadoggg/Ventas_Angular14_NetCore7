@@ -2,7 +2,7 @@
 using Ventas.BusinessLogicLayer.Menus;
 using Ventas.BusinessLogicLayer.Productos;
 using Ventas.BusinessLogicLayer.Usuarios;
-using Ventas.BusinessLogicLayer.VentaServices;
+using Ventas.BusinessLogicLayer.Ventas;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
@@ -31,7 +31,7 @@ namespace Ventas.API.Utilidad
             services.AddScoped<IUsuarioManager, UsuarioManager>();
             services.AddScoped<ICategoriaManager, CategoriaManager>();
             services.AddScoped<IProductoManager, ProductoManager>();
-            services.AddScoped<IVentaService, VentaService>();
+            services.AddScoped<IVentaManager, VentaManager>();
             services.AddScoped<IDashBoardManager, DashBoardManager>();
             services.AddScoped<IMenuManager, MenuManager>();
         }

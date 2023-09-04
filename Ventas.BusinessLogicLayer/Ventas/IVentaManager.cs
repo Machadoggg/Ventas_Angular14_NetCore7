@@ -1,8 +1,8 @@
 ﻿using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.VentaServices
+namespace Ventas.BusinessLogicLayer.Ventas
 {
-    public interface IVentaService
+    public interface IVentaManager
     {
         Task<Venta> Registrar(Venta modelo);
 

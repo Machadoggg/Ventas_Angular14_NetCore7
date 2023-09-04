@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
 using Ventas.BusinessLogicLayer;
-using Ventas.BusinessLogicLayer.VentaServices;
+using Ventas.BusinessLogicLayer.Ventas;
 using Ventas.Model;
 
 namespace Ventas.API.Controllers.Ventas
@@ -11,12 +11,12 @@ namespace Ventas.API.Controllers.Ventas
     [ApiController]
     public class VentaController : ControllerBase
     {
-        private readonly IVentaService _ventaServicio;
+        private readonly IVentaManager _ventaManager;
         private readonly IMapper _mapper;
 
-        public VentaController(IVentaService ventaServicio, IMapper mapper)
+        public VentaController(IVentaManager ventaManager, IMapper mapper)
         {
-            _ventaServicio = ventaServicio;
+            _ventaManager = ventaManager;
             _mapper = mapper;
         }
 
@@ -30,7 +30,7 @@ namespace Ventas.API.Controllers.Ventas
             try
             {
                 var modelo = _mapper.Map<Venta>(venta);
-                var ventaCreada = await _ventaServicio.Registrar(modelo);
+                var ventaCreada = await _ventaManager.Registrar(modelo);
                 respuesta.Value = _mapper.Map<VentaDTO>(ventaCreada);
                 return Ok(respuesta);
             }
@@ -54,7 +54,7 @@ namespace Ventas.API.Controllers.Ventas
 
             try
             {
-                var resultado = await _ventaServicio.Historial(buscarPor, numeroVenta, fechaInicio, fechaFin).ConfigureAwait(false);
+                var resultado = await _ventaManager.Historial(buscarPor, numeroVenta, fechaInicio, fechaFin).ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<VentaDTO>>(resultado);
                 return Ok(respuesta);
             }
@@ -75,7 +75,7 @@ namespace Ventas.API.Controllers.Ventas
 
             try
             {
-                respuesta.Value = await _ventaServicio.Reporte(fechaInicio, fechaFin);
+                respuesta.Value = await _ventaManager.Reporte(fechaInicio, fechaFin);
             }
             catch (Exception ex)
             {
