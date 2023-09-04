@@ -1,15 +1,15 @@
 ﻿using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.MenuServices
+namespace Ventas.BusinessLogicLayer.Menus
 {
-    public class MenuService : IMenuService
+    public class MenuManager : IMenuManager
     {
         private readonly IGenericRepository<Usuario> _usuarioRepositorio;
         private readonly IGenericRepository<MenuRol> _menuRolRepositorio;
         private readonly IGenericRepository<Menu> _menuRepositorio;
 
-        public MenuService(IGenericRepository<Usuario> usuarioRepositorio,
+        public MenuManager(IGenericRepository<Usuario> usuarioRepositorio,
             IGenericRepository<MenuRol> menuRolRepositorio,
             IGenericRepository<Menu> menuRepositorio)
         {

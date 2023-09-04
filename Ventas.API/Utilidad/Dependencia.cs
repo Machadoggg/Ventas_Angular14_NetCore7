@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ventas.BusinessLogicLayer.MenuServices;
+using Ventas.BusinessLogicLayer.Menus;
 using Ventas.BusinessLogicLayer.ProductoServices;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.BusinessLogicLayer.VentaServices;
@@ -32,8 +32,8 @@ namespace Ventas.API.Utilidad
             services.AddScoped<ICategoriaService, CategoriaService>();
             services.AddScoped<IProductoService, ProductoService>();
             services.AddScoped<IVentaService, VentaService>();
-            services.AddScoped<IDashBoardService, DashBoardService>();
-            services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<IDashBoardManager, DashBoardManager>();
+            services.AddScoped<IMenuManager, MenuManager>();
         }
     }
 }

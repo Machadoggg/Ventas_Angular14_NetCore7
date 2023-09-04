@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
 using Ventas.BusinessLogicLayer;
-using Ventas.BusinessLogicLayer.MenuServices;
+using Ventas.BusinessLogicLayer.Menus;
 
 namespace Ventas.API.Controllers.Menus
 {
@@ -10,12 +10,12 @@ namespace Ventas.API.Controllers.Menus
     [ApiController]
     public class DashBoardController : ControllerBase
     {
-        private readonly IDashBoardService _dashBoardServicio;
+        private readonly IDashBoardManager _dashBoardManager;
         private readonly IMapper _mapper;
 
-        public DashBoardController(IDashBoardService dashBoardServicio, IMapper mapper)
+        public DashBoardController(IDashBoardManager dashBoardServicio, IMapper mapper)
         {
-            _dashBoardServicio = dashBoardServicio;
+            _dashBoardManager = dashBoardServicio;
             _mapper = mapper;
         }
 
@@ -28,7 +28,7 @@ namespace Ventas.API.Controllers.Menus
 
             try
             {
-                var resultado = await _dashBoardServicio.Resumen().ConfigureAwait(false);
+                var resultado = await _dashBoardManager.Resumen().ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<DashBoardDTO>(resultado);
                 return Ok(respuesta);
             }

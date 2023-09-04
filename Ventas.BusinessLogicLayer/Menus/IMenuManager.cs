@@ -1,8 +1,8 @@
 ﻿using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.MenuServices
+namespace Ventas.BusinessLogicLayer.Menus
 {
-    public interface IMenuService
+    public interface IMenuManager
     {
         Task<List<Menu>> Lista(int idUsuario);
     }

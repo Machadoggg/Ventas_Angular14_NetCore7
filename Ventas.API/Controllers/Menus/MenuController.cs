@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
-using Ventas.BusinessLogicLayer.MenuServices;
+using Ventas.BusinessLogicLayer.Menus;
 
 namespace Ventas.API.Controllers.Menus
 {
@@ -9,12 +9,12 @@ namespace Ventas.API.Controllers.Menus
     [ApiController]
     public class MenuController : ControllerBase
     {
-        private readonly IMenuService _menuServicio;
+        private readonly IMenuManager _menuManager;
         private readonly IMapper _mapper;
 
-        public MenuController(IMenuService menuServicio, IMapper mapper)
+        public MenuController(IMenuManager menuServicio, IMapper mapper)
         {
-            _menuServicio = menuServicio;
+            _menuManager = menuServicio;
             _mapper = mapper;
         }
 
@@ -27,7 +27,7 @@ namespace Ventas.API.Controllers.Menus
 
             try
             {
-                var resultado = await _menuServicio.Lista(idUsuario).ConfigureAwait(false);
+                var resultado = await _menuManager.Lista(idUsuario).ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<MenuDTO>>(resultado);
                 return Ok(respuesta);
             }

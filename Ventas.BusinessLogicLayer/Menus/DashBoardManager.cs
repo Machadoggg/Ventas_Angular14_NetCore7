@@ -3,15 +3,15 @@ using System.Globalization;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.MenuServices
+namespace Ventas.BusinessLogicLayer.Menus
 {
-    public class DashBoardService : IDashBoardService
+    public class DashBoardManager : IDashBoardManager
     {
         private readonly IVentaRepository _ventaRepository;
         private readonly IGenericRepository<Producto> _productoRepositorio;
         private readonly IMapper _mapper;
 
-        public DashBoardService(IVentaRepository ventaRepository, IGenericRepository<Producto> productoRepositorio, IMapper mapper)
+        public DashBoardManager(IVentaRepository ventaRepository, IGenericRepository<Producto> productoRepositorio, IMapper mapper)
         {
             _ventaRepository = ventaRepository;
             _productoRepositorio = productoRepositorio;
