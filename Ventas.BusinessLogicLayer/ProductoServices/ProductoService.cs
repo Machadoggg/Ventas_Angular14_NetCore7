@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ventas.BusinessLogicLayer.Servicios.Contrato;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.Servicios
+namespace Ventas.BusinessLogicLayer.ProductoServices
 {
     public class ProductoService : IProductoService
     {

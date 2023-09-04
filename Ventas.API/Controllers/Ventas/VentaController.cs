@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
 using Ventas.BusinessLogicLayer;
-using Ventas.BusinessLogicLayer.Servicios.Contrato;
+using Ventas.BusinessLogicLayer.VentaServices;
 using Ventas.Model;
 
 namespace Ventas.API.Controllers.Ventas

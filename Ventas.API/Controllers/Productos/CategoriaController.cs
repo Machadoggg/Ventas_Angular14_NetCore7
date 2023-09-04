@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
-using Ventas.BusinessLogicLayer.Servicios.Contrato;
+using Ventas.BusinessLogicLayer.ProductoServices;
 using Ventas.DTO;
 
 namespace Ventas.API.Controllers.Productos

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
-using Ventas.BusinessLogicLayer.Servicios.Contrato;
+using Ventas.BusinessLogicLayer.UsuarioServices;
 
 namespace Ventas.API.Controllers.Usuarios
 {

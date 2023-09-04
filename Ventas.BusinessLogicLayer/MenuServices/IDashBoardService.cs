@@ -1,4 +1,4 @@
-﻿namespace Ventas.BusinessLogicLayer.Servicios.Contrato
+﻿namespace Ventas.BusinessLogicLayer.MenuServices
 {
     public interface IDashBoardService
     {

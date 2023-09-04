@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ventas.BusinessLogicLayer.Servicios;
-using Ventas.BusinessLogicLayer.Servicios.Contrato;
+using Ventas.BusinessLogicLayer.MenuServices;
+using Ventas.BusinessLogicLayer.ProductoServices;
+using Ventas.BusinessLogicLayer.UsuarioServices;
+using Ventas.BusinessLogicLayer.VentaServices;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios;
 using Ventas.DataAccessLayer.Repositorios.Contrato;

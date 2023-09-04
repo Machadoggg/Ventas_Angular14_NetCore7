@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
-using Ventas.BusinessLogicLayer.Servicios.Contrato;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.Servicios
+namespace Ventas.BusinessLogicLayer.VentaServices
 {
     public class VentaService : IVentaService
     {
