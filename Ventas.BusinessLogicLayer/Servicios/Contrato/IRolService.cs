@@ -1,6 +1,6 @@
 ﻿using Ventas.Model;
 
-namespace Ventas.BLL.Servicios.Contrato
+namespace Ventas.BusinessLogicLayer.Servicios.Contrato
 {
     public interface IRolService
     {

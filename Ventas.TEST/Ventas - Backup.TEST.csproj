@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ventas.API\Ventas.API.csproj" />
-    <ProjectReference Include="..\Ventas.BusinessLogicLayer\Ventas.BusinessLogicLayer.csproj" />
+    <ProjectReference Include="..\Ventas.BusinessLogicLayer\Ventas.BLL.csproj" />
   </ItemGroup>
 
 </Project>

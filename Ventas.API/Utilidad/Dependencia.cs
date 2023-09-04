@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ventas.BLL.Servicios;
-using Ventas.BLL.Servicios.Contrato;
+using Ventas.BusinessLogicLayer.Servicios;
+using Ventas.BusinessLogicLayer.Servicios.Contrato;
 using Ventas.DAL.DBContext;
 using Ventas.DAL.Repositorios;
 using Ventas.DAL.Repositorios.Contrato;

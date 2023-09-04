@@ -4,7 +4,7 @@ using Ventas.API.Controllers.Menus;
 using Ventas.API.Controllers.Productos;
 using Ventas.API.Controllers.Usuarios;
 using Ventas.API.Controllers.Ventas;
-using Ventas.BLL;
+using Ventas.BusinessLogicLayer;
 using Ventas.DTO;
 using Ventas.Model;
 

@@ -1,4 +1,4 @@
-﻿namespace Ventas.BLL
+﻿namespace Ventas.BusinessLogicLayer
 {
     public class ReporteDTO
     {

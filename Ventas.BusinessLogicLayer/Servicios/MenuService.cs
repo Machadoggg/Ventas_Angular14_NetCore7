@@ -1,8 +1,8 @@
-﻿using Ventas.BLL.Servicios.Contrato;
+﻿using Ventas.BusinessLogicLayer.Servicios.Contrato;
 using Ventas.DAL.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BLL.Servicios
+namespace Ventas.BusinessLogicLayer.Servicios
 {
     public class MenuService : IMenuService
     {

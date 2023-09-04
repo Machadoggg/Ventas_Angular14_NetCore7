@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ventas.BLL\Ventas.BLL.csproj" />
+    <ProjectReference Include="..\Ventas.BusinessLogicLayer\Ventas.BusinessLogicLayer.csproj" />
   </ItemGroup>
 
 </Project>
