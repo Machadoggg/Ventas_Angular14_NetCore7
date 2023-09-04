@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
-using Ventas.BusinessLogicLayer.ProductoServices;
+using Ventas.BusinessLogicLayer.Productos;
 using Ventas.DTO;
 
 namespace Ventas.API.Controllers.Productos
@@ -10,12 +10,12 @@ namespace Ventas.API.Controllers.Productos
     [ApiController]
     public class CategoriaController : ControllerBase
     {
-        private readonly ICategoriaService _categoriaServicio;
+        private readonly ICategoriaManager _categoriaManager;
         private readonly IMapper _mapper;
 
-        public CategoriaController(ICategoriaService categoriaServicio, IMapper mapper)
+        public CategoriaController(ICategoriaManager categoriaServicio, IMapper mapper)
         {
-            _categoriaServicio = categoriaServicio;
+            _categoriaManager = categoriaServicio;
             _mapper = mapper;
         }
 
@@ -28,7 +28,7 @@ namespace Ventas.API.Controllers.Productos
 
             try
             {
-                var resultado = await _categoriaServicio.Lista().ConfigureAwait(false);
+                var resultado = await _categoriaManager.Lista().ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<CategoriaDTO>>(resultado);
                 return Ok(respuesta);
             }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
-using Ventas.BusinessLogicLayer.ProductoServices;
+using Ventas.BusinessLogicLayer.Productos;
 using Ventas.Model;
 
 namespace Ventas.API.Controllers.Productos
@@ -10,12 +10,12 @@ namespace Ventas.API.Controllers.Productos
     [ApiController]
     public class ProductoController : ControllerBase
     {
-        private readonly IProductoService _productoServicio;
+        private readonly IProductoManager _productoManager;
         private readonly IMapper _mapper;
 
-        public ProductoController(IProductoService productoService, IMapper mapper)
+        public ProductoController(IProductoManager productoService, IMapper mapper)
         {
-            _productoServicio = productoService;
+            _productoManager = productoService;
             _mapper = mapper;
         }
 
@@ -28,7 +28,7 @@ namespace Ventas.API.Controllers.Productos
 
             try
             {
-                var resultado = await _productoServicio.Lista().ConfigureAwait(false);
+                var resultado = await _productoManager.Lista().ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<ProductoDTO>>(resultado);
                 return Ok(respuesta);
             }
@@ -49,7 +49,7 @@ namespace Ventas.API.Controllers.Productos
             try
             {
                 var modelo = _mapper.Map<Producto>(producto);
-                var productoCreado = await _productoServicio.Crear(modelo);
+                var productoCreado = await _productoManager.Crear(modelo);
                 respuesta.Value = _mapper.Map<ProductoDTO>(productoCreado);
                 return Ok(respuesta);
             }
@@ -70,7 +70,7 @@ namespace Ventas.API.Controllers.Productos
             try
             {
                 var modelo = _mapper.Map<Producto>(producto);
-                respuesta.Value = await _productoServicio.Editar(modelo);
+                respuesta.Value = await _productoManager.Editar(modelo);
                 return Ok(respuesta);
 
             }
@@ -90,7 +90,7 @@ namespace Ventas.API.Controllers.Productos
 
             try
             {
-                respuesta.Value = await _productoServicio.Eliminar(id);
+                respuesta.Value = await _productoManager.Eliminar(id);
                 return Ok(respuesta);
             }
             catch (Exception ex)

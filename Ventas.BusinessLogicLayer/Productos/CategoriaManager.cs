@@ -1,13 +1,13 @@
 ﻿using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.ProductoServices
+namespace Ventas.BusinessLogicLayer.Productos
 {
-    public class CategoriaService : ICategoriaService
+    public class CategoriaManager : ICategoriaManager
     {
         private readonly IGenericRepository<Categoria> _categoriaRepositorio;
 
-        public CategoriaService(IGenericRepository<Categoria> categoriaRepositorio)
+        public CategoriaManager(IGenericRepository<Categoria> categoriaRepositorio)
         {
             _categoriaRepositorio = categoriaRepositorio;
         }

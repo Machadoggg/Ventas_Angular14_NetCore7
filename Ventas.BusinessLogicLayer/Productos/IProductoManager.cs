@@ -1,8 +1,8 @@
 ﻿using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.ProductoServices
+namespace Ventas.BusinessLogicLayer.Productos
 {
-    public interface IProductoService
+    public interface IProductoManager
     {
         Task<List<Producto>> Lista();
         Task<Producto> Crear(Producto modelo);

@@ -2,13 +2,13 @@
 using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.ProductoServices
+namespace Ventas.BusinessLogicLayer.Productos
 {
-    public class ProductoService : IProductoService
+    public class ProductoManager : IProductoManager
     {
         private readonly IGenericRepository<Producto> _productoRepositorio;
 
-        public ProductoService(IGenericRepository<Producto> productoRepositorio)
+        public ProductoManager(IGenericRepository<Producto> productoRepositorio)
         {
             _productoRepositorio = productoRepositorio;
         }

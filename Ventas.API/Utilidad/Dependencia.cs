@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Ventas.BusinessLogicLayer.Menus;
-using Ventas.BusinessLogicLayer.ProductoServices;
+using Ventas.BusinessLogicLayer.Productos;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.BusinessLogicLayer.VentaServices;
 using Ventas.DataAccessLayer.DBContext;
@@ -29,8 +29,8 @@ namespace Ventas.API.Utilidad
             //Agregar las dependencias de todos los servicios
             services.AddScoped<IRolManager, RolManager>();
             services.AddScoped<IUsuarioManager, UsuarioManager>();
-            services.AddScoped<ICategoriaService, CategoriaService>();
-            services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<ICategoriaManager, CategoriaManager>();
+            services.AddScoped<IProductoManager, ProductoManager>();
             services.AddScoped<IVentaService, VentaService>();
             services.AddScoped<IDashBoardManager, DashBoardManager>();
             services.AddScoped<IMenuManager, MenuManager>();
