@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Ventas.BusinessLogicLayer.Servicios.Contrato;
-using Ventas.DAL.Repositorios.Contrato;
+using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
 namespace Ventas.BusinessLogicLayer.Servicios

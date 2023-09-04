@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ventas.DAL\Ventas.DAL.csproj" />
+    <ProjectReference Include="..\Ventas.DataAccessLayer\Ventas.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Ventas.Model\Ventas.Model.csproj" />
   </ItemGroup>
 

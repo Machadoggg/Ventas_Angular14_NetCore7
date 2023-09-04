@@ -1,6 +1,6 @@
 ﻿using Ventas.Model;
 
-namespace Ventas.DAL.Repositorios.Contrato
+namespace Ventas.DataAccessLayer.Repositorios.Contrato
 {
     //Aqui especificamos que vamos a trabajar con el
     //modelo de (Venta) en especifico (IGenericRepository<Venta>)

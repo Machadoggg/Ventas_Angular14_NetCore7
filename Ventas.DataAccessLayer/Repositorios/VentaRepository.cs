@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Ventas.DAL.DBContext;
-using Ventas.DAL.Repositorios.Contrato;
+using Ventas.DataAccessLayer.DBContext;
+using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.DAL.Repositorios
+namespace Ventas.DataAccessLayer.Repositorios
 {
     public class VentaRepository : GenericRepository<Venta>, IVentaRepository
     {

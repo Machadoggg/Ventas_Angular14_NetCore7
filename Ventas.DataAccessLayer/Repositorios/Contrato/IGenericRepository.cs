@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Ventas.DAL.Repositorios.Contrato
+namespace Ventas.DataAccessLayer.Repositorios.Contrato
 {
 
     //Especifica que (TModel) es una clase con (where TModel : class)

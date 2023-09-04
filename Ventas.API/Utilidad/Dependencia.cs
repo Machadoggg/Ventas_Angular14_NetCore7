@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Ventas.BusinessLogicLayer.Servicios;
 using Ventas.BusinessLogicLayer.Servicios.Contrato;
-using Ventas.DAL.DBContext;
-using Ventas.DAL.Repositorios;
-using Ventas.DAL.Repositorios.Contrato;
+using Ventas.DataAccessLayer.DBContext;
+using Ventas.DataAccessLayer.Repositorios;
+using Ventas.DataAccessLayer.Repositorios.Contrato;
 
 namespace Ventas.API.Utilidad
 {

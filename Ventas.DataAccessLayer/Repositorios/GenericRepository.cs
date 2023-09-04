@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using Ventas.DAL.DBContext;
-using Ventas.DAL.Repositorios.Contrato;
+using Ventas.DataAccessLayer.DBContext;
+using Ventas.DataAccessLayer.Repositorios.Contrato;
 
 
-namespace Ventas.DAL.Repositorios
+namespace Ventas.DataAccessLayer.Repositorios
 {
     public class GenericRepository<TModelo> : IGenericRepository<TModelo> where TModelo : class
     {

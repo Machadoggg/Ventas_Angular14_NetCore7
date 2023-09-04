@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.DAL", "Ventas.DAL\Ventas.DAL.csproj", "{DFA0C37D-F6F5-4D51-94B0-C5C80FCA9339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.DataAccessLayer", "Ventas.DataAccessLayer\Ventas.DataAccessLayer.csproj", "{DFA0C37D-F6F5-4D51-94B0-C5C80FCA9339}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.BusinessLogicLayer", "Ventas.BusinessLogicLayer\Ventas.BusinessLogicLayer.csproj", "{56B3403D-AA1D-4A38-93EB-1303C0AC18F2}"
 EndProject
