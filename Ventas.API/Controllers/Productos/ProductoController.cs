@@ -13,9 +13,9 @@ namespace Ventas.API.Controllers.Productos
         private readonly IProductoManager _productoManager;
         private readonly IMapper _mapper;
 
-        public ProductoController(IProductoManager productoService, IMapper mapper)
+        public ProductoController(IProductoManager productoManager, IMapper mapper)
         {
-            _productoManager = productoService;
+            _productoManager = productoManager;
             _mapper = mapper;
         }
 

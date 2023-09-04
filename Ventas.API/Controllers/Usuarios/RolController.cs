@@ -12,9 +12,9 @@ namespace Ventas.API.Controllers.Usuarios
         private readonly IRolManager _rolManager;
         private readonly IMapper _mapper;
 
-        public RolController(IRolManager rolServicio, IMapper mapper)
+        public RolController(IRolManager rolManager, IMapper mapper)
         {
-            _rolManager = rolServicio;
+            _rolManager = rolManager;
             _mapper = mapper;
         }
 

@@ -14,9 +14,9 @@ namespace Ventas.API.Controllers.Usuarios
         private readonly IUsuarioManager _usuarioManager;
         private readonly IMapper _mapper;
 
-        public UsuarioController(IUsuarioManager usuarioServicio, IMapper mapper)
+        public UsuarioController(IUsuarioManager usuarioManager, IMapper mapper)
         {
-            _usuarioManager = usuarioServicio;
+            _usuarioManager = usuarioManager;
             _mapper = mapper;
         }
 

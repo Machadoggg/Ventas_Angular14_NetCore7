@@ -13,9 +13,9 @@ namespace Ventas.API.Controllers.Menus
         private readonly IDashBoardManager _dashBoardManager;
         private readonly IMapper _mapper;
 
-        public DashBoardController(IDashBoardManager dashBoardServicio, IMapper mapper)
+        public DashBoardController(IDashBoardManager dashBoardManager, IMapper mapper)
         {
-            _dashBoardManager = dashBoardServicio;
+            _dashBoardManager = dashBoardManager;
             _mapper = mapper;
         }
 

@@ -12,9 +12,9 @@ namespace Ventas.API.Controllers.Menus
         private readonly IMenuManager _menuManager;
         private readonly IMapper _mapper;
 
-        public MenuController(IMenuManager menuServicio, IMapper mapper)
+        public MenuController(IMenuManager menuManager, IMapper mapper)
         {
-            _menuManager = menuServicio;
+            _menuManager = menuManager;
             _mapper = mapper;
         }
 

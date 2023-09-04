@@ -13,9 +13,9 @@ namespace Ventas.API.Controllers.Productos
         private readonly ICategoriaManager _categoriaManager;
         private readonly IMapper _mapper;
 
-        public CategoriaController(ICategoriaManager categoriaServicio, IMapper mapper)
+        public CategoriaController(ICategoriaManager categoriaManager, IMapper mapper)
         {
-            _categoriaManager = categoriaServicio;
+            _categoriaManager = categoriaManager;
             _mapper = mapper;
         }
 
