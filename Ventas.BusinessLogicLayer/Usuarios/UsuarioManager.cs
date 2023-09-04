@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
 using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.UsuarioServices
+namespace Ventas.BusinessLogicLayer.Usuarios
 {
-    public class UsuarioService : IUsuarioService
+    public class UsuarioManager : IUsuarioManager
     {
         private readonly IGenericRepository<Usuario> _usuarioRepositorio;
         private readonly IMapper _mapper;
 
-        public UsuarioService(IGenericRepository<Usuario> usuarioRepositorio, IMapper mapper)
+        public UsuarioManager(IGenericRepository<Usuario> usuarioRepositorio, IMapper mapper)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _mapper = mapper;

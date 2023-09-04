@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
 using Ventas.BusinessLogicLayer;
-using Ventas.BusinessLogicLayer.UsuarioServices;
+using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.Model;
 
 namespace Ventas.API.Controllers.Usuarios
@@ -11,12 +11,12 @@ namespace Ventas.API.Controllers.Usuarios
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        private readonly IUsuarioService _usuarioServicio;
+        private readonly IUsuarioManager _usuarioManager;
         private readonly IMapper _mapper;
 
-        public UsuarioController(IUsuarioService usuarioServicio, IMapper mapper)
+        public UsuarioController(IUsuarioManager usuarioServicio, IMapper mapper)
         {
-            _usuarioServicio = usuarioServicio;
+            _usuarioManager = usuarioServicio;
             _mapper = mapper;
         }
 
@@ -29,7 +29,7 @@ namespace Ventas.API.Controllers.Usuarios
 
             try
             {
-                var resultado = await _usuarioServicio.Lista().ConfigureAwait(false);
+                var resultado = await _usuarioManager.Lista().ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<UsuarioDTO>>(resultado);
                 return Ok(respuesta);
             }
@@ -49,7 +49,7 @@ namespace Ventas.API.Controllers.Usuarios
 
             try
             {
-                respuesta.Value = await _usuarioServicio.ValidarCredenciales(login.Correo, login.Clave);
+                respuesta.Value = await _usuarioManager.ValidarCredenciales(login.Correo, login.Clave);
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace Ventas.API.Controllers.Usuarios
             try
             {
                 var modelo = _mapper.Map<Usuario>(usuario);
-                var usuarioCreado = await _usuarioServicio.Crear(modelo);
+                var usuarioCreado = await _usuarioManager.Crear(modelo);
                 respuesta.Value = _mapper.Map<UsuarioDTO>(usuarioCreado);
                 return Ok(respuesta);
             }
@@ -89,7 +89,7 @@ namespace Ventas.API.Controllers.Usuarios
             try
             {
                 var modelo = _mapper.Map<Usuario>(usuario);
-                respuesta.Value = await _usuarioServicio.Editar(modelo);
+                respuesta.Value = await _usuarioManager.Editar(modelo);
                 return Ok(respuesta);
             }
             catch (Exception ex)
@@ -108,7 +108,7 @@ namespace Ventas.API.Controllers.Usuarios
 
             try
             {
-                respuesta.Value = await _usuarioServicio.Eliminar(id);
+                respuesta.Value = await _usuarioManager.Eliminar(id);
                 return Ok(respuesta);
             }
             catch (Exception ex)

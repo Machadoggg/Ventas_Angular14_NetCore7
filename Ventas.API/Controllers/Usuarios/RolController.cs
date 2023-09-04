@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
-using Ventas.BusinessLogicLayer.UsuarioServices;
+using Ventas.BusinessLogicLayer.Usuarios;
 
 namespace Ventas.API.Controllers.Usuarios
 {
@@ -9,12 +9,12 @@ namespace Ventas.API.Controllers.Usuarios
     [ApiController]
     public class RolController : ControllerBase
     {
-        private readonly IRolService _rolServicio;
+        private readonly IRolManager _rolManager;
         private readonly IMapper _mapper;
 
-        public RolController(IRolService rolServicio, IMapper mapper)
+        public RolController(IRolManager rolServicio, IMapper mapper)
         {
-            _rolServicio = rolServicio;
+            _rolManager = rolServicio;
             _mapper = mapper;
         }
 
@@ -27,7 +27,7 @@ namespace Ventas.API.Controllers.Usuarios
 
             try
             {
-                var resultado = await _rolServicio.Lista().ConfigureAwait(false);
+                var resultado = await _rolManager.Lista().ConfigureAwait(false);
                 respuesta.Value = _mapper.Map<List<RolDTO>>(resultado);
                 return Ok(respuesta);
             }

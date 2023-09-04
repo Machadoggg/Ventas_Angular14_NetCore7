@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Ventas.BusinessLogicLayer.MenuServices;
 using Ventas.BusinessLogicLayer.ProductoServices;
-using Ventas.BusinessLogicLayer.UsuarioServices;
+using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.BusinessLogicLayer.VentaServices;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios;
@@ -27,8 +27,8 @@ namespace Ventas.API.Utilidad
             services.AddAutoMapper(typeof(AutomapperProfile));
 
             //Agregar las dependencias de todos los servicios
-            services.AddScoped<IRolService, RolService>();
-            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<IRolManager, RolManager>();
+            services.AddScoped<IUsuarioManager, UsuarioManager>();
             services.AddScoped<ICategoriaService, CategoriaService>();
             services.AddScoped<IProductoService, ProductoService>();
             services.AddScoped<IVentaService, VentaService>();

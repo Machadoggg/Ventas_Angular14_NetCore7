@@ -2,13 +2,13 @@
 using Ventas.Model;
 
 
-namespace Ventas.BusinessLogicLayer.UsuarioServices
+namespace Ventas.BusinessLogicLayer.Usuarios
 {
-    public class RolService : IRolService
+    public class RolManager : IRolManager
     {
         private readonly IGenericRepository<Rol> _rolRepositorio;
 
-        public RolService(IGenericRepository<Rol> rolRepositorio)
+        public RolManager(IGenericRepository<Rol> rolRepositorio)
         {
             _rolRepositorio = rolRepositorio;
         }

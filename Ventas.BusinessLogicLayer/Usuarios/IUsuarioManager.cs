@@ -1,8 +1,8 @@
 ﻿using Ventas.Model;
 
-namespace Ventas.BusinessLogicLayer.UsuarioServices
+namespace Ventas.BusinessLogicLayer.Usuarios
 {
-    public interface IUsuarioService
+    public interface IUsuarioManager
     {
         Task<List<Usuario>> Lista();
         Task<SesionDTO> ValidarCredenciales(string correo, string clave);
