@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.DataAccessLayer", "V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.BusinessLogicLayer", "Ventas.BusinessLogicLayer\Ventas.BusinessLogicLayer.csproj", "{56B3403D-AA1D-4A38-93EB-1303C0AC18F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.Model", "Ventas.Model\Ventas.Model.csproj", "{FFA9A55D-B574-4199-A50E-E67DAE45EC01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.Domain", "Ventas.Domain\Ventas.Domain.csproj", "{FFA9A55D-B574-4199-A50E-E67DAE45EC01}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventas.API", "Ventas.API\Ventas.API.csproj", "{AF55C762-2B18-4CA0-9C2D-3A098AEA9CED}"
 EndProject
