@@ -96,7 +96,7 @@ namespace Ventas.API.Utilidad
                  )
                 .ForMember(destino =>
                     destino.FechaRegistro,
-                    opt => opt.MapFrom(origen => origen.FechaRegistro.Value.ToString("dd/MM/yyyy"))
+                    opt => opt.MapFrom(origen => origen.FechaRegistro.ToString("dd/MM/yyyy"))
                  );
 
             CreateMap<VentaDTO, Venta>()
@@ -149,7 +149,7 @@ namespace Ventas.API.Utilidad
                  )
                 .ForMember(destino =>
                     destino.TotalVenta,
-                    opt => opt.MapFrom(origen => Convert.ToString(origen.IdVentaNavigation.Total.Value, new CultureInfo("es-CO")))
+                    opt => opt.MapFrom(origen => Convert.ToString(origen.IdVentaNavigation.Total, new CultureInfo("es-CO")))
                  )
                 .ForMember(destino =>
                     destino.Producto,

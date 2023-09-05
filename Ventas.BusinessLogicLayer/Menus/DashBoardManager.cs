@@ -27,7 +27,7 @@ namespace Ventas.BusinessLogicLayer.Menus
 
             ultimaFecha = ultimaFecha.Value.AddDays(restarCantidadDias);
 
-            return tablaVenta.Where(v => v.FechaRegistro.Value.Date >= ultimaFecha.Value.Date);
+            return tablaVenta.Where(v => v.FechaRegistro.Date >= ultimaFecha.Value.Date);
         }
 
         private async Task<int> TotalVentasUltimaSemana()
@@ -53,7 +53,7 @@ namespace Ventas.BusinessLogicLayer.Menus
             {
                 var tablaVenta = RetornarVentas(_ventaQuery, -7);
 
-                resultado = tablaVenta.Select(v => v.Total).Sum(v => v.Value);
+                resultado = tablaVenta.Select(v => v.Total).Sum(v => v);
             }
 
             return Convert.ToString(resultado, new CultureInfo("es-CO"));
@@ -80,7 +80,7 @@ namespace Ventas.BusinessLogicLayer.Menus
                 var tablaVenta = RetornarVentas(_ventaQuery, -7);
 
                 resultado = tablaVenta
-                    .GroupBy(v => v.FechaRegistro.Value.Date).OrderBy(g => g.Key)
+                    .GroupBy(v => v.FechaRegistro.Date).OrderBy(g => g.Key)
                     .Select(dv => new { fecha = dv.Key.ToString("dd/MM/yyyy"), total = dv.Count() })
                     .ToDictionary(keySelector: r => r.fecha, elementSelector: r => r.total);
             }
