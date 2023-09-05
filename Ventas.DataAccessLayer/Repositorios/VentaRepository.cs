@@ -31,7 +31,7 @@ namespace Ventas.DataAccessLayer.Repositorios
                     //resta el STOCK de cada producto que esta involucrado dentro del detalle de la venta
                     foreach (DetalleVenta detalleVenta in modelo.DetalleVenta)
                     {
-                        Producto productoEncontrado = _dbcontext.Productos.Where(p => p.IdProducto == detalleVenta.IdProducto).First();
+                        Producto productoEncontrado = _dbcontext.Productos.Where(p => p.Id == detalleVenta.IdProducto).First();
 
                         productoEncontrado.Stock = productoEncontrado.Stock - detalleVenta.Cantidad;
                         _dbcontext.Productos.Update(productoEncontrado);

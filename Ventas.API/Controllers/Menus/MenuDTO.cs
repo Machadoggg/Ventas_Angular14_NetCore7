@@ -2,7 +2,7 @@
 {
     public class MenuDTO
     {
-        public int IdMenu { get; set; }
+        public int Id { get; set; }
 
         public string Nombre { get; set; }
 

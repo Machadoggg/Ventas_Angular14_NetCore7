@@ -2,7 +2,7 @@
 {
     public partial class DetalleVenta
     {
-        public int IdDetalleVenta { get; set; }
+        public int Id { get; set; }
 
         public int IdVenta { get; set; }
 

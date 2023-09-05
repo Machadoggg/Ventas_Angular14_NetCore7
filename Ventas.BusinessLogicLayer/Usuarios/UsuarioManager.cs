@@ -58,10 +58,10 @@ namespace Ventas.BusinessLogicLayer.Usuarios
             {
                 var usuarioCreado = await _usuarioRepositorio.Crear(_mapper.Map<Usuario>(modelo));
 
-                if (usuarioCreado.IdUsuario == 0)
+                if (usuarioCreado.Id == 0)
                     throw new TaskCanceledException("No se pudo crear");
 
-                var query = await _usuarioRepositorio.Consultar(u => u.IdUsuario == usuarioCreado.IdUsuario);
+                var query = await _usuarioRepositorio.Consultar(u => u.Id == usuarioCreado.Id);
                 usuarioCreado = query.Include(rol => rol.IdRolNavigation).First();
                 return usuarioCreado;
 
@@ -76,7 +76,7 @@ namespace Ventas.BusinessLogicLayer.Usuarios
         {
             try
             {
-                var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.IdUsuario == modelo.IdUsuario);
+                var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.Id == modelo.Id);
 
                 if (usuarioEncontrado == null)
                     throw new TaskCanceledException("El usuario no existe");
@@ -104,7 +104,7 @@ namespace Ventas.BusinessLogicLayer.Usuarios
         {
             try
             {
-                var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.IdUsuario == id);
+                var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.Id == id);
 
                 if (usuarioEncontrado == null)
                     throw new TaskCanceledException("El usuario no existe");

@@ -37,9 +37,9 @@ public partial class VentasAngular14Context : DbContext
     {
         modelBuilder.Entity<Categoria>(entity =>
         {
-            entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__8A3D240C0F1662C1");
+            entity.HasKey(e => e.Id).HasName("PK__Categori__8A3D240C0F1662C1");
 
-            entity.Property(e => e.IdCategoria).HasColumnName("idCategoria");
+            entity.Property(e => e.Id).HasColumnName("idCategoria");
             entity.Property(e => e.EsActivo)
                 .HasDefaultValueSql("((1))")
                 .HasColumnName("esActivo");
@@ -55,9 +55,9 @@ public partial class VentasAngular14Context : DbContext
 
         modelBuilder.Entity<DetalleVenta>(entity =>
         {
-            entity.HasKey(e => e.IdDetalleVenta).HasName("PK__DetalleV__BFE2843FC0DAF3DD");
+            entity.HasKey(e => e.Id).HasName("PK__DetalleV__BFE2843FC0DAF3DD");
 
-            entity.Property(e => e.IdDetalleVenta).HasColumnName("idDetalleVenta");
+            entity.Property(e => e.Id).HasColumnName("idDetalleVenta");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
             entity.Property(e => e.IdProducto).HasColumnName("idProducto");
             entity.Property(e => e.IdVenta).HasColumnName("idVenta");
@@ -79,11 +79,11 @@ public partial class VentasAngular14Context : DbContext
 
         modelBuilder.Entity<Menu>(entity =>
         {
-            entity.HasKey(e => e.IdMenu).HasName("PK__Menu__C26AF483BFA19A7C");
+            entity.HasKey(e => e.Id).HasName("PK__Menu__C26AF483BFA19A7C");
 
             entity.ToTable("Menu");
 
-            entity.Property(e => e.IdMenu).HasColumnName("idMenu");
+            entity.Property(e => e.Id).HasColumnName("idMenu");
             entity.Property(e => e.Icono)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -100,11 +100,11 @@ public partial class VentasAngular14Context : DbContext
 
         modelBuilder.Entity<MenuRol>(entity =>
         {
-            entity.HasKey(e => e.IdMenuRol).HasName("PK__MenuRol__9D6D61A469246AAE");
+            entity.HasKey(e => e.Id).HasName("PK__MenuRol__9D6D61A469246AAE");
 
             entity.ToTable("MenuRol");
 
-            entity.Property(e => e.IdMenuRol).HasColumnName("idMenuRol");
+            entity.Property(e => e.Id).HasColumnName("idMenuRol");
             entity.Property(e => e.IdMenu).HasColumnName("idMenu");
             entity.Property(e => e.IdRol).HasColumnName("idRol");
 
@@ -119,11 +119,11 @@ public partial class VentasAngular14Context : DbContext
 
         modelBuilder.Entity<NumeroDocumento>(entity =>
         {
-            entity.HasKey(e => e.IdNumeroDocumento).HasName("PK__NumeroDo__471E421AA36BB000");
+            entity.HasKey(e => e.Id).HasName("PK__NumeroDo__471E421AA36BB000");
 
             entity.ToTable("NumeroDocumento");
 
-            entity.Property(e => e.IdNumeroDocumento).HasColumnName("idNumeroDocumento");
+            entity.Property(e => e.Id).HasColumnName("idNumeroDocumento");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
@@ -133,11 +133,11 @@ public partial class VentasAngular14Context : DbContext
 
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.HasKey(e => e.IdProducto).HasName("PK__Producto__07F4A1326CC310E0");
+            entity.HasKey(e => e.Id).HasName("PK__Producto__07F4A1326CC310E0");
 
             entity.ToTable("Producto");
 
-            entity.Property(e => e.IdProducto).HasColumnName("idProducto");
+            entity.Property(e => e.Id).HasColumnName("idProducto");
             entity.Property(e => e.EsActivo)
                 .HasDefaultValueSql("((1))")
                 .HasColumnName("esActivo");
@@ -162,11 +162,11 @@ public partial class VentasAngular14Context : DbContext
 
         modelBuilder.Entity<Rol>(entity =>
         {
-            entity.HasKey(e => e.IdRol).HasName("PK__Rol__3C872F767DA27703");
+            entity.HasKey(e => e.Id).HasName("PK__Rol__3C872F767DA27703");
 
             entity.ToTable("Rol");
 
-            entity.Property(e => e.IdRol).HasColumnName("idRol");
+            entity.Property(e => e.Id).HasColumnName("idRol");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
@@ -179,11 +179,11 @@ public partial class VentasAngular14Context : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__645723A610C87169");
+            entity.HasKey(e => e.Id).HasName("PK__Usuario__645723A610C87169");
 
             entity.ToTable("Usuario");
 
-            entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
+            entity.Property(e => e.Id).HasColumnName("idUsuario");
             entity.Property(e => e.Clave)
                 .HasMaxLength(40)
                 .IsUnicode(false)
@@ -212,9 +212,9 @@ public partial class VentasAngular14Context : DbContext
 
         modelBuilder.Entity<Venta>(entity =>
         {
-            entity.HasKey(e => e.IdVenta).HasName("PK__Venta__077D5614BE45C389");
+            entity.HasKey(e => e.Id).HasName("PK__Venta__077D5614BE45C389");
 
-            entity.Property(e => e.IdVenta).HasColumnName("idVenta");
+            entity.Property(e => e.Id).HasColumnName("idVenta");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")

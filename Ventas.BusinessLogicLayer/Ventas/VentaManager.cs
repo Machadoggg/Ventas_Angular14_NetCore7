@@ -26,7 +26,7 @@ namespace Ventas.BusinessLogicLayer.Ventas
             {
                 var ventaGenerada = await _ventaRepository.Registrar(_mapper.Map<Venta>(modelo));
 
-                if (ventaGenerada.IdVenta == 0)
+                if (ventaGenerada.Id == 0)
                     throw new Exception("No se pudo crear");
 
                 return ventaGenerada;

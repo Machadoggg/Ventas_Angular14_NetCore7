@@ -2,7 +2,7 @@
 {
     public partial class MenuRol
     {
-        public int IdMenuRol { get; set; }
+        public int Id { get; set; }
 
         public int IdMenu { get; set; }
 

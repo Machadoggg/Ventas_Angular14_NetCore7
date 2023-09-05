@@ -20,7 +20,7 @@ namespace Ventas.BusinessLogicLayer.Menus
 
         public async Task<List<Menu>> Lista(int idUsuario)
         {
-            IQueryable<Usuario> tablaUsuario = await _usuarioRepositorio.Consultar(u => u.IdUsuario == idUsuario);
+            IQueryable<Usuario> tablaUsuario = await _usuarioRepositorio.Consultar(u => u.Id == idUsuario);
             IQueryable<MenuRol> tablaMenuRol = await _menuRolRepositorio.Consultar();
             IQueryable<Menu> tablaMenu = await _menuRepositorio.Consultar();
 
@@ -29,7 +29,7 @@ namespace Ventas.BusinessLogicLayer.Menus
             {
                 IQueryable<Menu> tablaResultado = (from u in tablaUsuario
                                                    join mr in tablaMenuRol on u.IdRol equals mr.IdRol
-                                                   join m in tablaMenu on mr.IdMenu equals m.IdMenu
+                                                   join m in tablaMenu on mr.IdMenu equals m.Id
                                                    select m).AsQueryable();
 
                 var listaMenus = tablaResultado.ToList();

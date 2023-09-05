@@ -35,7 +35,7 @@ namespace Ventas.BusinessLogicLayer.Productos
             {
                 var productoCreado = await _productoRepositorio.Crear(modelo);
 
-                if (productoCreado.IdProducto == 0)
+                if (productoCreado.Id == 0)
                     throw new TaskCanceledException("No se pudo crear");
 
                 return productoCreado;
@@ -50,7 +50,7 @@ namespace Ventas.BusinessLogicLayer.Productos
         {
             try
             {
-                var productoEncontrado = await _productoRepositorio.Obtener(u => u.IdProducto == modelo.IdProducto);
+                var productoEncontrado = await _productoRepositorio.Obtener(u => u.Id == modelo.Id);
 
                 if (productoEncontrado == null)
                 {
@@ -80,7 +80,7 @@ namespace Ventas.BusinessLogicLayer.Productos
         {
             try
             {
-                var productoEncontrado = await _productoRepositorio.Obtener(p => p.IdProducto == id);
+                var productoEncontrado = await _productoRepositorio.Obtener(p => p.Id == id);
 
                 if (productoEncontrado == null)
                     throw new TaskCanceledException("El producto no existe");
