@@ -1,6 +1,7 @@
-﻿using Ventas.Domain.Ventas;
+﻿using Ventas.BusinessLogicLayer.Comun;
+using Ventas.Domain.Ventas;
 
-namespace Ventas.DataAccessLayer.Repositorios.Contrato
+namespace Ventas.BusinessLogicLayer.Ventas
 {
     //Aqui especificamos que vamos a trabajar con el
     //modelo de (Venta) en especifico (IGenericRepository<Venta>)

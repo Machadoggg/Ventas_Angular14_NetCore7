@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System.Globalization;
-using Ventas.DataAccessLayer.Repositorios.Contrato;
+using Ventas.BusinessLogicLayer.Comun;
+using Ventas.BusinessLogicLayer.Ventas;
 using Ventas.Domain.Productos;
 using Ventas.Domain.Ventas;
 

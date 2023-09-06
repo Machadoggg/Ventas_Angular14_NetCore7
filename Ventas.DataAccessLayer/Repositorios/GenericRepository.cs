@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Ventas.DataAccessLayer.DBContext;
-using Ventas.DataAccessLayer.Repositorios.Contrato;
-
+using Ventas.BusinessLogicLayer.Comun;
 
 namespace Ventas.DataAccessLayer.Repositorios
 {

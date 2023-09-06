@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ventas.DataAccessLayer.Repositorios.Contrato;
+using Ventas.BusinessLogicLayer.Comun;
 using Ventas.Domain.Productos;
 
 namespace Ventas.BusinessLogicLayer.Productos

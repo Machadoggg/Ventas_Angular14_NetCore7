@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
-using Ventas.DataAccessLayer.Repositorios.Contrato;
+using Ventas.BusinessLogicLayer.Comun;
 using Ventas.Domain.Ventas;
 
 namespace Ventas.BusinessLogicLayer.Ventas

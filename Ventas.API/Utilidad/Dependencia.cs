@@ -5,7 +5,7 @@ using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.BusinessLogicLayer.Ventas;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios;
-using Ventas.DataAccessLayer.Repositorios.Contrato;
+using Ventas.BusinessLogicLayer.Comun;
 
 namespace Ventas.API.Utilidad
 {

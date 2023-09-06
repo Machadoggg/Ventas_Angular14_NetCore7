@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ventas.DataAccessLayer\Ventas.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Ventas.Domain\Ventas.Domain.csproj" />
   </ItemGroup>
 
