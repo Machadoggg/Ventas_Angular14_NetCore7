@@ -68,7 +68,7 @@ namespace Ventas.API.Controllers.Ventas
 
         [HttpGet]
         [Route("Reporte")]
-        public async Task<IActionResult> Reporte(string? fechaInicio, string? fechaFin)
+        public async Task<IActionResult> Reporte(string fechaInicio, string fechaFin)
         {
             var respuesta = new Response<List<ReporteDTO>>();
 

@@ -21,8 +21,8 @@ namespace Ventas.DataAccessLayer.Repositorios
         {
             try
             {
-                TModelo modelo = await _dbcontext.Set<TModelo>().FirstOrDefaultAsync(filtro);
-                return modelo;
+                TModelo? modelo = await _dbcontext.Set<TModelo>().FirstOrDefaultAsync(filtro);
+                return modelo!;
             }
             catch (Exception)
             {
@@ -76,12 +76,12 @@ namespace Ventas.DataAccessLayer.Repositorios
             }
         }
 
-        public async Task<IQueryable<TModelo>> Consultar(Expression<Func<TModelo, bool>>? filtro = null)
+        public Task<IQueryable<TModelo>> Consultar(Expression<Func<TModelo, bool>> ? filtro = null)
         {
             try
             {
                 IQueryable<TModelo> queryModelo = filtro == null ? _dbcontext.Set<TModelo>() : _dbcontext.Set<TModelo>().Where(filtro);
-                return queryModelo;
+                return Task.FromResult(queryModelo);
             }
             catch (Exception)
             {
@@ -89,9 +89,6 @@ namespace Ventas.DataAccessLayer.Repositorios
                 throw;
             }
         }
-
-
-
 
     }
 }

@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = default!;
 
         public int IdCategoria { get; set; }
 
@@ -18,6 +18,6 @@
 
         public virtual ICollection<DetalleVenta> DetalleVenta { get; set; } = new List<DetalleVenta>();
 
-        public virtual Categoria IdCategoriaNavigation { get; set; }
+        public virtual Categoria IdCategoriaNavigation { get; set; } = default!;
     }
 }

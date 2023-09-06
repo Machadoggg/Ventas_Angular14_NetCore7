@@ -14,8 +14,8 @@
 
         public decimal Total { get; set; }
 
-        public virtual Producto IdProductoNavigation { get; set; }
+        public virtual Producto IdProductoNavigation { get; set; } = default!;
 
-        public virtual Venta IdVentaNavigation { get; set; }
+        public virtual Venta IdVentaNavigation { get; set; } = default!;
     }
 }
