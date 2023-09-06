@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
-using Ventas.Model;
+using Ventas.Domain.Ventas;
 
 namespace Ventas.BusinessLogicLayer.Ventas
 {

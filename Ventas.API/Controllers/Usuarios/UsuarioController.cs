@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
 using Ventas.BusinessLogicLayer;
 using Ventas.BusinessLogicLayer.Usuarios;
-using Ventas.Model;
+using Ventas.Domain.Usuarios;
 
 namespace Ventas.API.Controllers.Usuarios
 {

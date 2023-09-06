@@ -1,4 +1,6 @@
-﻿namespace Ventas.Model
+﻿using Ventas.Domain.Ventas;
+
+namespace Ventas.Domain.Productos
 {
     public partial class Producto
     {

@@ -1,5 +1,5 @@
 ﻿using Ventas.DataAccessLayer.Repositorios.Contrato;
-using Ventas.Model;
+using Ventas.Domain.Productos;
 
 namespace Ventas.BusinessLogicLayer.Productos
 {

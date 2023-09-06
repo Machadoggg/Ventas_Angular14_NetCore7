@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
 using Ventas.BusinessLogicLayer;
 using Ventas.BusinessLogicLayer.Ventas;
-using Ventas.Model;
+using Ventas.Domain.Ventas;
 
 namespace Ventas.API.Controllers.Ventas
 {

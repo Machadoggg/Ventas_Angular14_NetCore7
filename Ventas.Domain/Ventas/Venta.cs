@@ -1,4 +1,4 @@
-﻿namespace Ventas.Model
+﻿namespace Ventas.Domain.Ventas
 {
     public partial class Venta
     {

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
-using Ventas.Model;
+using Ventas.Domain.Productos;
+using Ventas.Domain.Ventas;
 
 namespace Ventas.DataAccessLayer.Repositorios
 {

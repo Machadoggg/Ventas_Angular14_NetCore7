@@ -1,4 +1,4 @@
-﻿namespace Ventas.Model
+﻿namespace Ventas.Domain.Usuarios
 {
     public partial class Usuario
     {

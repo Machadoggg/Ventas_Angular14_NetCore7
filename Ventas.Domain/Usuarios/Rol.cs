@@ -1,4 +1,6 @@
-﻿namespace Ventas.Model
+﻿using Ventas.Domain.Menus;
+
+namespace Ventas.Domain.Usuarios
 {
     public partial class Rol
     {

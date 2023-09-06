@@ -1,4 +1,4 @@
-﻿using Ventas.Model;
+﻿using Ventas.Domain.Ventas;
 
 namespace Ventas.BusinessLogicLayer.Ventas
 {

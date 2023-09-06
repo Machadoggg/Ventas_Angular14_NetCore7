@@ -1,4 +1,4 @@
-﻿namespace Ventas.Model
+﻿namespace Ventas.Domain.Menus
 {
     public partial class Menu
     {

@@ -1,4 +1,4 @@
-﻿using Ventas.Model;
+﻿using Ventas.Domain.Productos;
 
 namespace Ventas.BusinessLogicLayer.Productos
 {

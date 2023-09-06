@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using System.Globalization;
 using Ventas.DataAccessLayer.Repositorios.Contrato;
-using Ventas.Model;
+using Ventas.Domain.Productos;
+using Ventas.Domain.Ventas;
 
 namespace Ventas.BusinessLogicLayer.Menus
 {

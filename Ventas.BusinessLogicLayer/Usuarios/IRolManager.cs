@@ -1,4 +1,4 @@
-﻿using Ventas.Model;
+﻿using Ventas.Domain.Usuarios;
 
 namespace Ventas.BusinessLogicLayer.Usuarios
 {

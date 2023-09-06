@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
 using Ventas.BusinessLogicLayer.Productos;
-using Ventas.Model;
+using Ventas.Domain.Productos;
 
 namespace Ventas.API.Controllers.Productos
 {

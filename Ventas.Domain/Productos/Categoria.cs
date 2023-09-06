@@ -1,4 +1,4 @@
-﻿namespace Ventas.Model
+﻿namespace Ventas.Domain.Productos
 {
     public partial class Categoria
     {

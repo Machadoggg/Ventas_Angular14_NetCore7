@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ventas.Model;
+using Ventas.Domain.Menus;
+using Ventas.Domain.Productos;
+using Ventas.Domain.Usuarios;
+using Ventas.Domain.Ventas;
 
 namespace Ventas.DataAccessLayer.DBContext;
 

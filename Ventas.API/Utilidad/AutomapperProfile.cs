@@ -5,8 +5,11 @@ using Ventas.API.Controllers.Productos;
 using Ventas.API.Controllers.Usuarios;
 using Ventas.API.Controllers.Ventas;
 using Ventas.BusinessLogicLayer;
+using Ventas.Domain.Menus;
+using Ventas.Domain.Productos;
+using Ventas.Domain.Usuarios;
+using Ventas.Domain.Ventas;
 using Ventas.DTO;
-using Ventas.Model;
 
 namespace Ventas.API.Utilidad
 {
