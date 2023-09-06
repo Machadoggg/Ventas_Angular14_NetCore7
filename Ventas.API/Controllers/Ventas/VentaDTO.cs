@@ -4,13 +4,13 @@
     {
         public int Id { get; set; }
 
-        public string NumeroDocumento { get; set; }
+        public string NumeroDocumento { get; set; } = default!;
 
-        public string TipoPago { get; set; }
+        public string TipoPago { get; set; } = default!;
 
-        public string TotalTexto { get; set; }
+        public string TotalTexto { get; set; } = default!;
 
-        public string FechaRegistro { get; set; }
+        public string FechaRegistro { get; set; } = default!;
 
 
         public virtual ICollection<DetalleVentaDTO>? DetalleVenta { get; set; }

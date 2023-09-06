@@ -8,8 +8,8 @@
 
         public int IdRol { get; set; }
 
-        public virtual Menu IdMenuNavigation { get; set; }
+        public virtual Menu IdMenuNavigation { get; set; } = default!;
 
-        public virtual Rol IdRolNavigation { get; set; }
+        public virtual Rol IdRolNavigation { get; set; } = default!;
     }
 }

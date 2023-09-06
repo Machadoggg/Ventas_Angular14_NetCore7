@@ -49,8 +49,8 @@ namespace Ventas.BusinessLogicLayer.Ventas
                     DateTime fecha_Fin = DateTime.ParseExact(fechaFin, "dd/MM/yyyy", new CultureInfo("es-CO"));
 
                     listaResultado = await query.Where(v =>
-                        v.FechaRegistro.Value.Date >= fecha_Inicio &&
-                        v.FechaRegistro.Value.Date <= fecha_Fin.Date
+                        v.FechaRegistro.Date >= fecha_Inicio &&
+                        v.FechaRegistro.Date <= fecha_Fin.Date
                     ).Include(dv => dv.DetalleVenta)
                     .ThenInclude(p => p.IdProductoNavigation)
                     .ToListAsync();
@@ -90,8 +90,8 @@ namespace Ventas.BusinessLogicLayer.Ventas
                     .Include(p => p.IdProductoNavigation)
                     .Include(v => v.IdVentaNavigation)
                     .Where(dv =>
-                           dv.IdVentaNavigation.FechaRegistro.Value.Date >= fecha_Inicio.Date &&
-                           dv.IdVentaNavigation.FechaRegistro.Value.Date <= fecha_Fin.Date
+                           dv.IdVentaNavigation.FechaRegistro.Date >= fecha_Inicio.Date &&
+                           dv.IdVentaNavigation.FechaRegistro.Date <= fecha_Fin.Date
                         ).ToListAsync();
             }
             catch (Exception)
