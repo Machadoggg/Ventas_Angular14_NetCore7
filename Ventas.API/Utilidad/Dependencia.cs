@@ -35,6 +35,7 @@ namespace Ventas.API.Utilidad
             services.AddScoped<IDashBoardManager, DashBoardManager>();
             services.AddScoped<IMenuManager, MenuManager>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IRolRepository, RolRepository>();
         }
     }
 }
