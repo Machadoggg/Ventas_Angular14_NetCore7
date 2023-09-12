@@ -79,7 +79,16 @@ namespace Ventas.DataAccessLayer.Repositorios
         {
             try
             {
-                IQueryable<TModelo> queryModelo = filtro == null ? _dbcontext.Set<TModelo>() : _dbcontext.Set<TModelo>().Where(filtro);
+                IQueryable<TModelo> queryModelo;
+                if (filtro == null)
+                {
+                    queryModelo = _dbcontext.Set<TModelo>();
+                }
+                else 
+                {
+                    queryModelo = _dbcontext.Set<TModelo>().Where(filtro);
+                }
+                
                 return Task.FromResult(queryModelo);
             }
             catch (Exception)
