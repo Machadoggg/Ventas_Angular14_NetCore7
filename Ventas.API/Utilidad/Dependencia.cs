@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Ventas.BusinessLogicLayer.Comun;
 using Ventas.BusinessLogicLayer.Menus;
 using Ventas.BusinessLogicLayer.Productos;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.BusinessLogicLayer.Ventas;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios;
-using Ventas.BusinessLogicLayer.Comun;
 
 namespace Ventas.API.Utilidad
 {
@@ -34,6 +34,7 @@ namespace Ventas.API.Utilidad
             services.AddScoped<IVentaManager, VentaManager>();
             services.AddScoped<IDashBoardManager, DashBoardManager>();
             services.AddScoped<IMenuManager, MenuManager>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using Ventas.DataAccessLayer.DBContext;
 using Ventas.BusinessLogicLayer.Comun;
+using Ventas.DataAccessLayer.DBContext;
 
 namespace Ventas.DataAccessLayer.Repositorios
 {
@@ -75,7 +75,7 @@ namespace Ventas.DataAccessLayer.Repositorios
             }
         }
 
-        public Task<IQueryable<TModelo>> Consultar(Expression<Func<TModelo, bool>> ? filtro = null)
+        public Task<IQueryable<TModelo>> Consultar(Expression<Func<TModelo, bool>>? filtro = null)
         {
             try
             {
@@ -84,11 +84,11 @@ namespace Ventas.DataAccessLayer.Repositorios
                 {
                     queryModelo = _dbcontext.Set<TModelo>();
                 }
-                else 
+                else
                 {
                     queryModelo = _dbcontext.Set<TModelo>().Where(filtro);
                 }
-                
+
                 return Task.FromResult(queryModelo);
             }
             catch (Exception)
