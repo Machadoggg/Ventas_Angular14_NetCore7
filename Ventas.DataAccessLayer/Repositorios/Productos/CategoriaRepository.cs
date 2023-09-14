@@ -1,9 +1,10 @@
 ﻿using Ventas.BusinessLogicLayer.Comun;
 using Ventas.BusinessLogicLayer.Productos;
 using Ventas.DataAccessLayer.DBContext;
+using Ventas.DataAccessLayer.Repositorios.Comun;
 using Ventas.Domain.Productos;
 
-namespace Ventas.DataAccessLayer.Repositorios
+namespace Ventas.DataAccessLayer.Repositorios.Productos
 {
     public class CategoriaRepository : GenericRepository<Categoria>, ICategoriaRepository
     {

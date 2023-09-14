@@ -8,8 +8,9 @@ using Ventas.DataAccessLayer.DBContext;
 using Ventas.Domain.Productos;
 using Ventas.Domain.Ventas;
 using Ventas.BusinessLogicLayer.Ventas;
+using Ventas.DataAccessLayer.Repositorios.Comun;
 
-namespace Ventas.DataAccessLayer.Repositorios
+namespace Ventas.DataAccessLayer.Repositorios.Ventas
 {
     public class VentaRepository : GenericRepository<Venta>, IVentaRepository
     {

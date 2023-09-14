@@ -5,8 +5,11 @@ using Ventas.BusinessLogicLayer.Productos;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.BusinessLogicLayer.Ventas;
 using Ventas.DataAccessLayer.DBContext;
-using Ventas.DataAccessLayer.Repositorios;
+using Ventas.DataAccessLayer.Repositorios.Comun;
 using Ventas.DataAccessLayer.Repositorios.Menus;
+using Ventas.DataAccessLayer.Repositorios.Productos;
+using Ventas.DataAccessLayer.Repositorios.Usuarios;
+using Ventas.DataAccessLayer.Repositorios.Ventas;
 
 namespace Ventas.API.Utilidad
 {

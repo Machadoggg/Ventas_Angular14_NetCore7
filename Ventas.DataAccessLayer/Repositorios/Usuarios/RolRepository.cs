@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.DataAccessLayer.DBContext;
+using Ventas.DataAccessLayer.Repositorios.Comun;
 using Ventas.Domain.Usuarios;
 
-namespace Ventas.DataAccessLayer.Repositorios
+namespace Ventas.DataAccessLayer.Repositorios.Usuarios
 {
     public class RolRepository : GenericRepository<Rol>, IRolRepository
     {

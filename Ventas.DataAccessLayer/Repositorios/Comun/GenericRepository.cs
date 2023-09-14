@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using Ventas.BusinessLogicLayer.Comun;
 using Ventas.DataAccessLayer.DBContext;
 
-namespace Ventas.DataAccessLayer.Repositorios
+namespace Ventas.DataAccessLayer.Repositorios.Comun
 {
     public class GenericRepository<TModelo> : IGenericRepository<TModelo> where TModelo : class
     {

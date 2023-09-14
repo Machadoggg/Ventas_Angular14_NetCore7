@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Ventas.BusinessLogicLayer.Menus;
 using Ventas.DataAccessLayer.DBContext;
+using Ventas.DataAccessLayer.Repositorios.Comun;
 using Ventas.Domain.Menus;
 
 namespace Ventas.DataAccessLayer.Repositorios.Menus
