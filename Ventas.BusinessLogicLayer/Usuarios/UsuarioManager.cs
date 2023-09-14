@@ -7,10 +7,10 @@ namespace Ventas.BusinessLogicLayer.Usuarios
 {
     public class UsuarioManager : IUsuarioManager
     {
-        private readonly IGenericRepository<Usuario> _usuarioRepositorio;
+        private readonly IUsuarioRepository _usuarioRepositorio;
         private readonly IMapper _mapper;
 
-        public UsuarioManager(IGenericRepository<Usuario> usuarioRepositorio, IMapper mapper)
+        public UsuarioManager(IUsuarioRepository usuarioRepositorio, IMapper mapper)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _mapper = mapper;
@@ -19,38 +19,20 @@ namespace Ventas.BusinessLogicLayer.Usuarios
 
         public async Task<List<Usuario>> Lista()
         {
-            try
-            {
-                var queryUsuario = await _usuarioRepositorio.Consultar();
-                var listaUsuarios = queryUsuario.Include(rol => rol.IdRolNavigation).ToList();
-
-                return listaUsuarios;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var listaUsuarios = await _usuarioRepositorio.ListaUsuariosAsync().ConfigureAwait(false);
+            return listaUsuarios;
         }
 
         public async Task<SesionDTO> ValidarCredenciales(string correo, string clave)
         {
-            try
-            {
-                var queryUsuario = await _usuarioRepositorio.Consultar(u =>
-                    u.Correo == correo &&
-                    u.Clave == clave
-                );
-                if (queryUsuario.FirstOrDefault() == null)
-                    throw new TaskCanceledException("El usuario no existe");
-
-                Usuario devolverUsuario = queryUsuario.Include(rol => rol.IdRolNavigation).First();
-                return _mapper.Map<SesionDTO>(devolverUsuario);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var validarUsuario = await _usuarioRepositorio.ValidarCredencialesAsync(correo, clave).ConfigureAwait(false);
+            return validarUsuario;
+            
         }
+
+
+
+
 
         public async Task<Usuario> Crear(Usuario modelo)
         {
