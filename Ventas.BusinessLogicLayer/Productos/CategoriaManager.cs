@@ -1,28 +1,30 @@
-﻿using Ventas.BusinessLogicLayer.Comun;
-using Ventas.Domain.Productos;
+﻿using Ventas.Domain.Productos;
 
 namespace Ventas.BusinessLogicLayer.Productos
 {
     public class CategoriaManager : ICategoriaManager
     {
-        private readonly IGenericRepository<Categoria> _categoriaRepositorio;
+        private readonly ICategoriaRepository _categoriaRepositorio;
 
-        public CategoriaManager(IGenericRepository<Categoria> categoriaRepositorio)
+        public CategoriaManager(ICategoriaRepository categoriaRepositorio)
         {
             _categoriaRepositorio = categoriaRepositorio;
         }
 
         public async Task<List<Categoria>> Lista()
         {
-            try
-            {
-                var listaCategorias = await _categoriaRepositorio.Consultar();
-                return listaCategorias.ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var listaCategorias = await _categoriaRepositorio.ListaCategoriasAsync().ConfigureAwait(false);
+            return listaCategorias.ToList();
+
+            //try
+            //{
+            //    var listaCategorias = await _categoriaRepositorio.Consultar();
+            //    return listaCategorias.ToList();
+            //}
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
         }
     }
 }
