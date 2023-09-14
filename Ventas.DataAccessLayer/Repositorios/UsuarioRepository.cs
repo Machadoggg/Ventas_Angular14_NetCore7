@@ -4,7 +4,6 @@ using Ventas.BusinessLogicLayer;
 using Ventas.BusinessLogicLayer.Comun;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.DataAccessLayer.DBContext;
-using Ventas.Domain.Menus;
 using Ventas.Domain.Usuarios;
 
 namespace Ventas.DataAccessLayer.Repositorios
@@ -22,23 +21,6 @@ namespace Ventas.DataAccessLayer.Repositorios
             _genericRepositorio = usuarioRepositorio;
         }
 
-
-        public async Task<List<Menu>> ObtenerMenuPorIdAsync(int id)
-        {
-            try
-            {
-                var listaMenus = await (from u in _dbContext.Usuarios
-                                        join mr in _dbContext.MenuRols on u.IdRol equals mr.IdRol
-                                        join m in _dbContext.Menus on mr.IdMenu equals m.Id
-                                        where u.Id == id
-                                        select m).ToListAsync();
-                return listaMenus;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         public async Task<List<Usuario>> ListaUsuariosAsync()
         {

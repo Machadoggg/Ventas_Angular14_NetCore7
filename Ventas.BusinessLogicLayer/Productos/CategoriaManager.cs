@@ -16,15 +16,6 @@ namespace Ventas.BusinessLogicLayer.Productos
             var listaCategorias = await _categoriaRepositorio.ListaCategoriasAsync().ConfigureAwait(false);
             return listaCategorias.ToList();
 
-            //try
-            //{
-            //    var listaCategorias = await _categoriaRepositorio.Consultar();
-            //    return listaCategorias.ToList();
-            //}
-            //catch (Exception)
-            //{
-            //    throw;
-            //}
         }
     }
 }

@@ -6,7 +6,6 @@ namespace Ventas.BusinessLogicLayer.Usuarios
 {
     public interface IUsuarioRepository : IGenericRepository<Usuario>
     {
-        public Task<List<Menu>> ObtenerMenuPorIdAsync(int id);
 
         Task<List<Usuario>> ListaUsuariosAsync();
 

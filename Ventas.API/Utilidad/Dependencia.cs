@@ -6,6 +6,7 @@ using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.BusinessLogicLayer.Ventas;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios;
+using Ventas.DataAccessLayer.Repositorios.Menus;
 
 namespace Ventas.API.Utilidad
 {
@@ -38,6 +39,7 @@ namespace Ventas.API.Utilidad
             services.AddScoped<IRolRepository, RolRepository>();
             services.AddScoped<IProductoRepository, ProductoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+            services.AddScoped<IMenuRepository, MenuRepository>();
         }
     }
 }

@@ -5,17 +5,17 @@ namespace Ventas.BusinessLogicLayer.Menus
 {
     public class MenuManager : IMenuManager
     {
-        private readonly IUsuarioRepository _usuarioRepositorio;
+        private readonly IMenuRepository _menuRepositorio;
 
-        public MenuManager(IUsuarioRepository usuarioRepositorio)
+        public MenuManager(IMenuRepository menuRepositorio)
         {
-            _usuarioRepositorio = usuarioRepositorio;
+            _menuRepositorio = menuRepositorio;
         }
 
 
         public async Task<List<Menu>> Lista(int idUsuario)
         {
-            return await _usuarioRepositorio.ObtenerMenuPorIdAsync(idUsuario).ConfigureAwait(false);
+            return await _menuRepositorio.ObtenerMenuPorIdAsync(idUsuario).ConfigureAwait(false);
         }
     }
 }
