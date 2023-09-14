@@ -43,6 +43,7 @@ namespace Ventas.API.Utilidad
             services.AddScoped<IProductoRepository, ProductoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<IDashBoardRepository, DashBoardRepository>();
         }
     }
 }
