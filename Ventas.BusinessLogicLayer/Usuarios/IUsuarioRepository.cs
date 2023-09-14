@@ -9,9 +9,13 @@ namespace Ventas.BusinessLogicLayer.Usuarios
         public Task<List<Menu>> ObtenerMenuPorIdAsync(int id);
 
         Task<List<Usuario>> ListaUsuariosAsync();
+
         Task<SesionDTO> ValidarCredencialesAsync(string correo, string clave);
+
         Task<Usuario> CrearUsuarioAsync(Usuario modelo);
-        //Task<bool> EditarUsuarioAsync(Usuario modelo);
-        //Task<bool> EliminarUsuarioAsync(int id);
+
+        Task<bool> EditarUsuarioAsync(Usuario modelo);
+
+        Task<bool> EliminarUsuarioAsync(int id);
     }
 }

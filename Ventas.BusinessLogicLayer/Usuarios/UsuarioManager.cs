@@ -1,19 +1,14 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using Ventas.BusinessLogicLayer.Comun;
-using Ventas.Domain.Usuarios;
+﻿using Ventas.Domain.Usuarios;
 
 namespace Ventas.BusinessLogicLayer.Usuarios
 {
     public class UsuarioManager : IUsuarioManager
     {
         private readonly IUsuarioRepository _usuarioRepositorio;
-        private readonly IMapper _mapper;
 
-        public UsuarioManager(IUsuarioRepository usuarioRepositorio, IMapper mapper)
+        public UsuarioManager(IUsuarioRepository usuarioRepositorio)
         {
             _usuarioRepositorio = usuarioRepositorio;
-            _mapper = mapper;
         }
 
 
@@ -27,7 +22,7 @@ namespace Ventas.BusinessLogicLayer.Usuarios
         {
             var validarUsuario = await _usuarioRepositorio.ValidarCredencialesAsync(correo, clave).ConfigureAwait(false);
             return validarUsuario;
-            
+
         }
 
         public async Task<Usuario> Crear(Usuario modelo)
@@ -36,62 +31,16 @@ namespace Ventas.BusinessLogicLayer.Usuarios
             return usuarioCreado;
         }
 
-
-
-
-
-
-
-
-
         public async Task<bool> Editar(Usuario modelo)
         {
-            try
-            {
-                var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.Id == modelo.Id);
-
-                if (usuarioEncontrado == null)
-                    throw new TaskCanceledException("El usuario no existe");
-
-                usuarioEncontrado.NombreCompleto = modelo.NombreCompleto;
-                usuarioEncontrado.Correo = modelo.Correo;
-                usuarioEncontrado.IdRol = modelo.IdRol;
-                usuarioEncontrado.Clave = modelo.Clave;
-                usuarioEncontrado.EsActivo = modelo.EsActivo;
-
-                bool respuesta = await _usuarioRepositorio.Editar(usuarioEncontrado);
-
-                if (!respuesta)
-                    throw new TaskCanceledException("No se pudo editar");
-
-                return respuesta;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var usuarioEditado = await _usuarioRepositorio.EditarUsuarioAsync(modelo).ConfigureAwait(false);
+            return usuarioEditado;
         }
 
         public async Task<bool> Eliminar(int id)
         {
-            try
-            {
-                var usuarioEncontrado = await _usuarioRepositorio.Obtener(u => u.Id == id);
-
-                if (usuarioEncontrado == null)
-                    throw new TaskCanceledException("El usuario no existe");
-
-                bool respuesta = await _usuarioRepositorio.Eliminar(usuarioEncontrado);
-
-                if (!respuesta)
-                    throw new TaskCanceledException("No se pudo eliminar");
-
-                return respuesta;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var usuarioEliminado = await _usuarioRepositorio.EliminarUsuarioAsync(id).ConfigureAwait(false);
+            return usuarioEliminado;
         }
     }
 }
