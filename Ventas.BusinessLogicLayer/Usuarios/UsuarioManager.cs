@@ -30,29 +30,19 @@ namespace Ventas.BusinessLogicLayer.Usuarios
             
         }
 
-
-
-
-
         public async Task<Usuario> Crear(Usuario modelo)
         {
-            try
-            {
-                var usuarioCreado = await _usuarioRepositorio.Crear(_mapper.Map<Usuario>(modelo));
-
-                if (usuarioCreado.Id == 0)
-                    throw new TaskCanceledException("No se pudo crear");
-
-                var query = await _usuarioRepositorio.Consultar(u => u.Id == usuarioCreado.Id);
-                usuarioCreado = query.Include(rol => rol.IdRolNavigation).First();
-                return usuarioCreado;
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var usuarioCreado = await _usuarioRepositorio.CrearUsuarioAsync(modelo).ConfigureAwait(false);
+            return usuarioCreado;
         }
+
+
+
+
+
+
+
+
 
         public async Task<bool> Editar(Usuario modelo)
         {

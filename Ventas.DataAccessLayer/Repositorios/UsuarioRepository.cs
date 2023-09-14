@@ -5,6 +5,8 @@ using Ventas.DataAccessLayer.DBContext;
 using Ventas.Domain.Menus;
 using Ventas.Domain.Usuarios;
 using AutoMapper;
+using Ventas.BusinessLogicLayer.Comun;
+using Ventas.Domain.Productos;
 
 namespace Ventas.DataAccessLayer.Repositorios
 {
@@ -12,11 +14,13 @@ namespace Ventas.DataAccessLayer.Repositorios
     {
         private readonly VentasAngular14Context _dbContext;
         private readonly IMapper _mapper;
+        private readonly IGenericRepository<Usuario> _usuarioRepositorio;
 
-        public UsuarioRepository(VentasAngular14Context dbContext, IMapper mapper) : base(dbContext)
+        public UsuarioRepository(VentasAngular14Context dbContext, IMapper mapper, IGenericRepository<Usuario> usuarioRepositorio) : base(dbContext)
         {
             _dbContext = dbContext;
             _mapper = mapper;
+            _usuarioRepositorio = usuarioRepositorio;
         }
 
 
@@ -66,6 +70,26 @@ namespace Ventas.DataAccessLayer.Repositorios
                 }
 
                 return _mapper.Map<SesionDTO>(queryUsuario);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Usuario> CrearUsuarioAsync(Usuario modelo)
+        {
+            try
+            {
+                var usuarioCreado = await _usuarioRepositorio.Crear(modelo);
+
+                if (usuarioCreado.Id == 0)
+                    throw new Exception("No se pudo crear el usuario");
+
+                var queryUsuario = await _usuarioRepositorio.Consultar(u => u.Id == usuarioCreado.Id);
+                usuarioCreado = queryUsuario.Include(rol => rol.IdRolNavigation).First();
+
+                return usuarioCreado;
             }
             catch (Exception)
             {
