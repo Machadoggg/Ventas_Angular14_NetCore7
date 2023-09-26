@@ -3,8 +3,8 @@
     public class DashBoard
     {
         public int TotalVentas { get; set; }
-        public string? TotalIngresos { get; set; }
+        public string TotalIngresos { get; set; } = default!;
         public int TotalProductos { get; set; }
-        public List<VentasSemana>? VentasUltimaSemana { get; set; }
+        public List<VentasSemana> VentasUltimaSemana { get; set; } = default!;
     }
 }

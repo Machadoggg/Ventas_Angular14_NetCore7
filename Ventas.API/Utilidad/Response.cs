@@ -3,8 +3,8 @@
     public class Response<T>
     {
         public bool Ok { get; set; }
-        public T? Value { get; set; }
-        public string? MensajeError { get; set; }
+        public T Value { get; set; } = default!;
+        public string MensajeError { get; set; } = default!;
 
 
         public Response()
