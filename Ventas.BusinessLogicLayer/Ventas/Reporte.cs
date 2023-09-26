@@ -1,6 +1,6 @@
 ﻿namespace Ventas.BusinessLogicLayer
 {
-    public class ReporteDTO
+    public class Reporte
     {
         public string? NumeroDocumento { get; set; }
         public string? TipoPago { get; set; }

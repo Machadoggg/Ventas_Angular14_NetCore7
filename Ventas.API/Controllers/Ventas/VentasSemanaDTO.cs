@@ -1,4 +1,4 @@
-﻿namespace Ventas.BusinessLogicLayer
+﻿namespace Ventas.API.Controllers.Ventas
 {
     public class VentasSemanaDTO
     {

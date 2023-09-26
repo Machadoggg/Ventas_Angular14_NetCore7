@@ -10,7 +10,7 @@ using Ventas.Domain.Ventas;
 
 namespace Ventas.DataAccessLayer.Repositorios.Menus
 {
-    public class DashBoardRepository : GenericRepository<DashBoardDTO>, IDashBoardRepository
+    public class DashBoardRepository : GenericRepository<DashBoard>, IDashBoardRepository
     {
         private readonly IVentaRepository _ventaRepository;
         private readonly IGenericRepository<Producto> _productoRepositorio;
@@ -90,9 +90,9 @@ namespace Ventas.DataAccessLayer.Repositorios.Menus
             return resultado;
         }
 
-        public async Task<DashBoardDTO> ResumenAsync()
+        public async Task<DashBoard> ResumenAsync()
         {
-            DashBoardDTO viewModelDashBoard = new DashBoardDTO();
+            DashBoard viewModelDashBoard = new DashBoard();
 
             try
             {
@@ -100,11 +100,11 @@ namespace Ventas.DataAccessLayer.Repositorios.Menus
                 viewModelDashBoard.TotalIngresos = await TotalIngresosUltimaSemana();
                 viewModelDashBoard.TotalProductos = await TotalProductos();
 
-                List<VentasSemanaDTO> listaVentaSemana = new List<VentasSemanaDTO>();
+                List<VentasSemana> listaVentaSemana = new List<VentasSemana>();
 
                 foreach (KeyValuePair<string, int> item in await VentasUltimaSemana())
                 {
-                    listaVentaSemana.Add(new VentasSemanaDTO()
+                    listaVentaSemana.Add(new VentasSemana()
                     {
                         Fecha = item.Key,
                         Total = item.Value

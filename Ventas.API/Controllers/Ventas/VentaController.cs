@@ -70,7 +70,7 @@ namespace Ventas.API.Controllers.Ventas
         [Route("Reporte")]
         public async Task<IActionResult> Reporte(string fechaInicio, string fechaFin)
         {
-            var respuesta = new Response<List<ReporteDTO>>();
+            var respuesta = new Response<List<Reporte>>();
 
 
             try

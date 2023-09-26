@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Ventas.BusinessLogicLayer;
 using Ventas.BusinessLogicLayer.Comun;
+using Ventas.BusinessLogicLayer.Sesion;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios.Comun;
@@ -38,7 +38,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
             }
         }
 
-        public async Task<SesionDTO> ValidarCredencialesAsync(string correo, string clave)
+        public async Task<Sesion> ValidarCredencialesAsync(string correo, string clave)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
                     throw new TaskCanceledException("El usuario no existe");
                 }
 
-                return _mapper.Map<SesionDTO>(queryUsuario);
+                return _mapper.Map<Sesion>(queryUsuario);
             }
             catch (Exception)
             {

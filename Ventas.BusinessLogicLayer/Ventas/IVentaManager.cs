@@ -8,7 +8,7 @@ namespace Ventas.BusinessLogicLayer.Ventas
 
         Task<List<Venta>> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin);
 
-        Task<List<ReporteDTO>> Reporte(string fechaInicio, string fechaFin);
+        Task<List<Reporte>> Reporte(string fechaInicio, string fechaFin);
 
     }
 }

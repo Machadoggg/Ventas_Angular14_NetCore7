@@ -1,6 +1,6 @@
 ﻿using Ventas.BusinessLogicLayer.Comun;
-using Ventas.Domain.Menus;
 using Ventas.Domain.Usuarios;
+using BLL = Ventas.BusinessLogicLayer.Sesion;
 
 namespace Ventas.BusinessLogicLayer.Usuarios
 {
@@ -9,7 +9,7 @@ namespace Ventas.BusinessLogicLayer.Usuarios
 
         Task<List<Usuario>> ListaUsuariosAsync();
 
-        Task<SesionDTO> ValidarCredencialesAsync(string correo, string clave);
+        Task<BLL.Sesion> ValidarCredencialesAsync(string correo, string clave);
 
         Task<Usuario> CrearUsuarioAsync(Usuario modelo);
 

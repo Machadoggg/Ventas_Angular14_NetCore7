@@ -5,11 +5,13 @@ using Ventas.API.Controllers.Productos;
 using Ventas.API.Controllers.Usuarios;
 using Ventas.API.Controllers.Ventas;
 using Ventas.BusinessLogicLayer;
+using Ventas.BusinessLogicLayer.Sesion;
 using Ventas.Domain.Menus;
 using Ventas.Domain.Productos;
 using Ventas.Domain.Usuarios;
 using Ventas.Domain.Ventas;
 using Ventas.DTO;
+using BLL = Ventas.API.Controllers.Sesion;
 
 namespace Ventas.API.Utilidad
 {
@@ -22,8 +24,13 @@ namespace Ventas.API.Utilidad
             CreateMap<Rol, RolDTO>().ReverseMap();
             #endregion Rol
 
+            #region Sesion
+            CreateMap<Sesion, BLL.SesionDTO>().ReverseMap();
+            #endregion Sesion
+
             #region Menu
             CreateMap<Menu, MenuDTO>().ReverseMap();
+            CreateMap<DashBoard, DashBoardDTO>().ReverseMap();
             #endregion Menu
 
             #region Usuario
@@ -47,13 +54,11 @@ namespace Ventas.API.Utilidad
                     opt => opt.MapFrom(origen => origen.EsActivo == 1 ? true : false)
                  );
 
-
-            CreateMap<Usuario, SesionDTO>()
+            CreateMap<Usuario, Sesion>()
                 .ForMember(destino =>
                     destino.RolDescripcion,
                     opt => opt.MapFrom(origen => origen.IdRolNavigation.Nombre)
                  );
-
             #endregion Usuario
 
             #region Categoria
@@ -107,6 +112,8 @@ namespace Ventas.API.Utilidad
                     destino.Total,
                     opt => opt.MapFrom(origen => Convert.ToDecimal(origen.TotalTexto, new CultureInfo("es-CO")))
                  );
+
+            CreateMap<VentasSemana, VentasSemanaDTO>().ReverseMap();
             #endregion Venta
 
             #region DetalleVenta
@@ -166,6 +173,8 @@ namespace Ventas.API.Utilidad
                     destino.Total,
                     opt => opt.MapFrom(origen => Convert.ToString(origen.Total.ToString(), new CultureInfo("es-CO")))
                  );
+
+            CreateMap<Reporte, ReporteDTO>().ReverseMap();
             #endregion Reporte
 
 

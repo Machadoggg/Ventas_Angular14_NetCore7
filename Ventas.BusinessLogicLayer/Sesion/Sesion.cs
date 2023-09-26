@@ -1,6 +1,6 @@
-﻿namespace Ventas.BusinessLogicLayer
+﻿namespace Ventas.BusinessLogicLayer.Sesion
 {
-    public class SesionDTO
+    public class Sesion
     {
         public int IdUsuario { get; set; }
 

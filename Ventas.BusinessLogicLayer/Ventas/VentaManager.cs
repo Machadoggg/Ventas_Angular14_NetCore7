@@ -76,7 +76,7 @@ namespace Ventas.BusinessLogicLayer.Ventas
         }
 
 
-        public async Task<List<ReporteDTO>> Reporte(string fechaInicio, string fechaFin)
+        public async Task<List<Reporte>> Reporte(string fechaInicio, string fechaFin)
         {
             IQueryable<DetalleVenta> query = await _detalleVentaRepositorio.Consultar();
             var listaResultado = new List<DetalleVenta>();
@@ -99,7 +99,7 @@ namespace Ventas.BusinessLogicLayer.Ventas
                 throw;
             }
 
-            return _mapper.Map<List<ReporteDTO>>(listaResultado);
+            return _mapper.Map<List<Reporte>>(listaResultado);
         }
     }
 }

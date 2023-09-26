@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Ventas.API.Utilidad;
-using Ventas.BusinessLogicLayer;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.Domain.Usuarios;
+using BLL = Ventas.BusinessLogicLayer.Sesion;
 
 namespace Ventas.API.Controllers.Usuarios
 {
@@ -45,7 +45,7 @@ namespace Ventas.API.Controllers.Usuarios
         [Route("IniciarSesion")]
         public async Task<IActionResult> IniciarSesion([FromBody] LoginDTO login)
         {
-            var respuesta = new Response<SesionDTO>();
+            var respuesta = new Response<BLL.Sesion>();
 
             try
             {

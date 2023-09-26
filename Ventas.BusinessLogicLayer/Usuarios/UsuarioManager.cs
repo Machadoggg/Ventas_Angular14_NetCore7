@@ -1,4 +1,5 @@
 ﻿using Ventas.Domain.Usuarios;
+using BLL = Ventas.BusinessLogicLayer.Sesion;
 
 namespace Ventas.BusinessLogicLayer.Usuarios
 {
@@ -18,7 +19,7 @@ namespace Ventas.BusinessLogicLayer.Usuarios
             return listaUsuarios;
         }
 
-        public async Task<SesionDTO> ValidarCredenciales(string correo, string clave)
+        public async Task<BLL.Sesion> ValidarCredenciales(string correo, string clave)
         {
             var validarUsuario = await _usuarioRepositorio.ValidarCredencialesAsync(correo, clave).ConfigureAwait(false);
             return validarUsuario;

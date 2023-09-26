@@ -2,6 +2,6 @@
 {
     public interface IDashBoardManager
     {
-        Task<DashBoardDTO> Resumen();
+        Task<DashBoard> Resumen();
     }
 }

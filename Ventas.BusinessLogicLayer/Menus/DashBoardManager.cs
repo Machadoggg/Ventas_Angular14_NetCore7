@@ -9,7 +9,7 @@
             _dashBoardRepositorio = dashBoardRepositorio;
         }
 
-        public async Task<DashBoardDTO> Resumen()
+        public async Task<DashBoard> Resumen()
         {
             var listaVentaSemana = await _dashBoardRepositorio.ResumenAsync().ConfigureAwait(false);
             return listaVentaSemana;
