@@ -3,7 +3,7 @@ using Ventas.Domain.Productos;
 
 namespace Ventas.BusinessLogicLayer.Productos
 {
-    public interface IProductoRepository : IGenericRepository<Producto>
+    public interface IProductoRepository : IProductoRepository<Producto>
     {
         Task<List<Producto>> ListaProductosAsync();
         Task<Producto> CrearProductoAsync(Producto modelo);

@@ -5,7 +5,7 @@ using Ventas.DataAccessLayer.DBContext;
 
 namespace Ventas.DataAccessLayer.Repositorios.Comun
 {
-    public class GenericRepository<TModelo> : IGenericRepository<TModelo> where TModelo : class
+    public class GenericRepository<TModelo> : IProductoRepository<TModelo> where TModelo : class
     {
         private readonly VentasAngular14Context _dbcontext;
 
@@ -15,8 +15,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Comun
         }
 
 
-
-        public async Task<TModelo> Obtener(Expression<Func<TModelo, bool>> filtro)
+        public async Task<TModelo> ObtenerAsync(Expression<Func<TModelo, bool>> filtro)
         {
             try
             {
@@ -30,7 +29,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Comun
             }
         }
 
-        public async Task<TModelo> Crear(TModelo modelo)
+        public async Task<TModelo> CrearAsync(TModelo modelo)
         {
             try
             {
@@ -45,7 +44,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Comun
             }
         }
 
-        public async Task<bool> Editar(TModelo modelo)
+        public async Task<bool> EditarAsync(TModelo modelo)
         {
             try
             {
@@ -75,7 +74,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Comun
             }
         }
 
-        public Task<IQueryable<TModelo>> Consultar(Expression<Func<TModelo, bool>>? filtro = null)
+        public IQueryable<TModelo> Consultar(Expression<Func<TModelo, bool>>? filtro = null)
         {
             try
             {
@@ -89,7 +88,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Comun
                     queryModelo = _dbcontext.Set<TModelo>().Where(filtro);
                 }
 
-                return Task.FromResult(queryModelo);
+                return queryModelo;
             }
             catch (Exception)
             {

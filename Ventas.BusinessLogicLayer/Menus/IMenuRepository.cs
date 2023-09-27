@@ -3,7 +3,7 @@ using Ventas.Domain.Menus;
 
 namespace Ventas.BusinessLogicLayer.Menus
 {
-    public interface IMenuRepository : IGenericRepository<Menu>
+    public interface IMenuRepository : IProductoRepository<Menu>
     {
         public Task<List<Menu>> ObtenerMenuPorIdAsync(int id);
     }

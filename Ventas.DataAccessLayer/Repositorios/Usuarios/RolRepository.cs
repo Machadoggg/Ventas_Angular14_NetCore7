@@ -8,18 +8,17 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
 {
     public class RolRepository : GenericRepository<Rol>, IRolRepository
     {
-        private readonly VentasAngular14Context _dbcontext;
 
         public RolRepository(VentasAngular14Context dbcontext) : base(dbcontext)
         {
-            _dbcontext = dbcontext;
         }
 
         public async Task<List<Rol>> ListaRolesAsync()
         {
             try
             {
-                var listaRoles = await _dbcontext.Rols.ToListAsync();
+                var queryRoles = Consultar();
+                var listaRoles = await queryRoles.ToListAsync();
                 return listaRoles;
             }
             catch (Exception)

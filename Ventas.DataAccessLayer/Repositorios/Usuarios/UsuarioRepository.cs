@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Ventas.BusinessLogicLayer.Comun;
 using Ventas.BusinessLogicLayer.Sesion;
 using Ventas.BusinessLogicLayer.Usuarios;
 using Ventas.DataAccessLayer.DBContext;
@@ -11,15 +10,11 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
 {
     public class UsuarioRepository : GenericRepository<Usuario>, IUsuarioRepository
     {
-        private readonly VentasAngular14Context _dbContext;
         private readonly IMapper _mapper;
-        private readonly IGenericRepository<Usuario> _genericRepositorio;
 
-        public UsuarioRepository(VentasAngular14Context dbContext, IMapper mapper, IGenericRepository<Usuario> usuarioRepositorio) : base(dbContext)
+        public UsuarioRepository(VentasAngular14Context dbContext, IMapper mapper) : base(dbContext)
         {
-            _dbContext = dbContext;
             _mapper = mapper;
-            _genericRepositorio = usuarioRepositorio;
         }
 
 
@@ -27,9 +22,8 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
         {
             try
             {
-                var queryUsuario = _dbContext.Usuarios;
+                var queryUsuario = Consultar();
                 var listaUsuarios = await queryUsuario.Include(rol => rol.IdRolNavigation).ToListAsync();
-
                 return listaUsuarios;
             }
             catch (Exception)
@@ -42,16 +36,17 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
         {
             try
             {
-                var queryUsuario = await _dbContext.Usuarios
-                .Include(rol => rol.IdRolNavigation)
-                .FirstOrDefaultAsync(u => u.Correo == correo && u.Clave == clave);
+                var queryUsuario = Consultar();
+                var usuario = await queryUsuario
+                    .Include(rol => rol.IdRolNavigation)
+                    .FirstOrDefaultAsync(u => u.Correo == correo && u.Clave == clave);
 
-                if (queryUsuario == null)
+                if (usuario == null)
                 {
                     throw new TaskCanceledException("El usuario no existe");
                 }
 
-                return _mapper.Map<Sesion>(queryUsuario);
+                return _mapper.Map<Sesion>(usuario);
             }
             catch (Exception)
             {
@@ -63,12 +58,12 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
         {
             try
             {
-                var usuarioCreado = await _genericRepositorio.Crear(modelo);
+                var usuarioCreado = await CrearAsync(modelo);
 
                 if (usuarioCreado.Id == 0)
                     throw new Exception("No se pudo crear el usuario");
 
-                var queryUsuario = await _genericRepositorio.Consultar(u => u.Id == usuarioCreado.Id);
+                var queryUsuario = Consultar(u => u.Id == usuarioCreado.Id);
                 usuarioCreado = queryUsuario.Include(rol => rol.IdRolNavigation).First();
 
                 return usuarioCreado;
@@ -83,7 +78,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
         {
             try
             {
-                var usuarioEncontrado = await _genericRepositorio.Obtener(u => u.Id == modelo.Id);
+                var usuarioEncontrado = await ObtenerAsync(u => u.Id == modelo.Id);
 
                 if (usuarioEncontrado == null)
                     throw new TaskCanceledException("El usuario no existe");
@@ -94,7 +89,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
                 usuarioEncontrado.Clave = modelo.Clave;
                 usuarioEncontrado.EsActivo = modelo.EsActivo;
 
-                bool respuesta = await _genericRepositorio.Editar(usuarioEncontrado);
+                bool respuesta = await EditarAsync(usuarioEncontrado);
 
                 if (!respuesta)
                     throw new TaskCanceledException("No se pudo editar");
@@ -111,12 +106,12 @@ namespace Ventas.DataAccessLayer.Repositorios.Usuarios
         {
             try
             {
-                var usuarioEncontrado = await _genericRepositorio.Obtener(u => u.Id == id);
+                var usuarioEncontrado = await ObtenerAsync(u => u.Id == id);
 
                 if (usuarioEncontrado == null)
                     throw new TaskCanceledException("El usuario no existe");
 
-                bool respuesta = await _genericRepositorio.Eliminar(usuarioEncontrado);
+                bool respuesta = await Eliminar(usuarioEncontrado);
 
                 if (!respuesta)
                     throw new TaskCanceledException("No se pudo eliminar");

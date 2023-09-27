@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Ventas.BusinessLogicLayer.Ventas;
 using Ventas.DataAccessLayer.DBContext;
+using Ventas.DataAccessLayer.Repositorios.Comun;
 using Ventas.Domain.Productos;
 using Ventas.Domain.Ventas;
-using Ventas.BusinessLogicLayer.Ventas;
-using Ventas.DataAccessLayer.Repositorios.Comun;
 
 namespace Ventas.DataAccessLayer.Repositorios.Ventas
 {

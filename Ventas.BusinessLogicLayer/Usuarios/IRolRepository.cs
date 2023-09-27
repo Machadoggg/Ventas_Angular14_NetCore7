@@ -3,7 +3,7 @@ using Ventas.Domain.Usuarios;
 
 namespace Ventas.BusinessLogicLayer.Usuarios
 {
-    public interface IRolRepository : IGenericRepository<Rol>
+    public interface IRolRepository : IProductoRepository<Rol>
     {
         Task<List<Rol>> ListaRolesAsync();
     }

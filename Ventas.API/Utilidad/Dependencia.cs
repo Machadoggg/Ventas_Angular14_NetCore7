@@ -24,7 +24,7 @@ namespace Ventas.API.Utilidad
             });
 
             //crear dependencia de los repositorios que habiamos creado (para cualquier modelo:  <>)
-            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient(typeof(IProductoRepository<>), typeof(GenericRepository<>));
             //Se especifica el modelo
             services.AddScoped<IVentaRepository, VentaRepository>();
 

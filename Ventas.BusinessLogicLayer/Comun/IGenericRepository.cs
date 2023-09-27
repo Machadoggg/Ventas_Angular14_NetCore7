@@ -4,12 +4,12 @@ namespace Ventas.BusinessLogicLayer.Comun
 {
 
     //Especifica que (TModel) es una clase con (where TModel : class)
-    public interface IGenericRepository<TModel> where TModel : class
+    public interface IProductoRepository<TModel> where TModel : class
     {
-        Task<TModel> Obtener(Expression<Func<TModel, bool>> filtro);
-        Task<TModel> Crear(TModel modelo);
-        Task<bool> Editar(TModel modelo);
+        Task<TModel> ObtenerAsync(Expression<Func<TModel, bool>> filtro);
+        Task<TModel> CrearAsync(TModel modelo);
+        Task<bool> EditarAsync(TModel modelo);
         Task<bool> Eliminar(TModel modelo);
-        Task<IQueryable<TModel>> Consultar(Expression<Func<TModel, bool>>? filtro = null);
+        IQueryable<TModel> Consultar(Expression<Func<TModel, bool>>? filtro = null);
     }
 }

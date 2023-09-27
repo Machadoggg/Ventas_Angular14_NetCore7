@@ -4,7 +4,7 @@ using BLL = Ventas.BusinessLogicLayer.Sesion;
 
 namespace Ventas.BusinessLogicLayer.Usuarios
 {
-    public interface IUsuarioRepository : IGenericRepository<Usuario>
+    public interface IUsuarioRepository : IProductoRepository<Usuario>
     {
 
         Task<List<Usuario>> ListaUsuariosAsync();

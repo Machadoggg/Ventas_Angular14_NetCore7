@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ventas.BusinessLogicLayer.Comun;
 using Ventas.BusinessLogicLayer.Productos;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios.Comun;
@@ -9,13 +8,9 @@ namespace Ventas.DataAccessLayer.Repositorios.Productos
 {
     public class ProductoRepository : GenericRepository<Producto>, IProductoRepository
     {
-        private readonly VentasAngular14Context _dbContext;
-        private readonly IGenericRepository<Producto> _genericRepositorio;
 
-        public ProductoRepository(VentasAngular14Context dbContext, IGenericRepository<Producto> genericRepositorio) : base(dbContext)
+        public ProductoRepository(VentasAngular14Context dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
-            _genericRepositorio = genericRepositorio;
         }
 
 
@@ -23,13 +18,13 @@ namespace Ventas.DataAccessLayer.Repositorios.Productos
         {
             try
             {
-                var queryProducto = _dbContext.Productos;
+                var queryProducto = Consultar();
                 var listaProductos = await queryProducto.Include(cat => cat.IdCategoriaNavigation).ToListAsync();
-
                 return listaProductos;
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
@@ -38,12 +33,12 @@ namespace Ventas.DataAccessLayer.Repositorios.Productos
         {
             try
             {
-                var productoCreado = await _genericRepositorio.Crear(modelo);
+                var productoCreado = await CrearAsync(modelo);
 
                 if (productoCreado.Id == 0)
                     throw new Exception("No se pudo crear el producto");
 
-                var queryProducto = await _genericRepositorio.Consultar(u => u.Id == productoCreado.Id);
+                var queryProducto = Consultar(u => u.Id == productoCreado.Id);
                 productoCreado = queryProducto.Include(cat => cat.IdCategoriaNavigation).First();
 
                 return productoCreado;
@@ -58,7 +53,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Productos
         {
             try
             {
-                var productoEncontrado = await _genericRepositorio.Obtener(u => u.Id == modelo.Id);
+                var productoEncontrado = await ObtenerAsync(u => u.Id == modelo.Id);
 
                 if (productoEncontrado == null)
                 {
@@ -71,7 +66,7 @@ namespace Ventas.DataAccessLayer.Repositorios.Productos
                 productoEncontrado.Precio = modelo.Precio;
                 productoEncontrado.EsActivo = modelo.EsActivo;
 
-                bool respuesta = await _genericRepositorio.Editar(productoEncontrado);
+                bool respuesta = await EditarAsync(productoEncontrado);
 
                 if (!respuesta)
                     throw new TaskCanceledException("No se pudo editar");
@@ -88,12 +83,12 @@ namespace Ventas.DataAccessLayer.Repositorios.Productos
         {
             try
             {
-                var productoEncontrado = await _genericRepositorio.Obtener(p => p.Id == id);
+                var productoEncontrado = await ObtenerAsync(p => p.Id == id);
 
                 if (productoEncontrado == null)
                     throw new TaskCanceledException("El producto no existe");
 
-                bool respuesta = await _genericRepositorio.Eliminar(productoEncontrado);
+                bool respuesta = await Eliminar(productoEncontrado);
 
                 if (!respuesta)
                     throw new TaskCanceledException("No se pudo eliminar");
@@ -105,6 +100,5 @@ namespace Ventas.DataAccessLayer.Repositorios.Productos
                 throw;
             }
         }
-
     }
 }

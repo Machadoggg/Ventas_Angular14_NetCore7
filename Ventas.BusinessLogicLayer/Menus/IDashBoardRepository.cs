@@ -2,7 +2,7 @@
 
 namespace Ventas.BusinessLogicLayer.Menus
 {
-    public interface IDashBoardRepository : IGenericRepository<DashBoard>
+    public interface IDashBoardRepository : IProductoRepository<DashBoard>
     {
         Task<DashBoard> ResumenAsync();
     }

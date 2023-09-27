@@ -1,4 +1,4 @@
-﻿using Ventas.BusinessLogicLayer.Comun;
+﻿using Microsoft.EntityFrameworkCore;
 using Ventas.BusinessLogicLayer.Productos;
 using Ventas.DataAccessLayer.DBContext;
 using Ventas.DataAccessLayer.Repositorios.Comun;
@@ -8,17 +8,23 @@ namespace Ventas.DataAccessLayer.Repositorios.Productos
 {
     public class CategoriaRepository : GenericRepository<Categoria>, ICategoriaRepository
     {
-        private readonly IGenericRepository<Categoria> _genericRepositorio;
-
-        public CategoriaRepository(VentasAngular14Context dbContext, IGenericRepository<Categoria> genericRepositorio) : base(dbContext)
+        public CategoriaRepository(VentasAngular14Context dbcontext) : base(dbcontext)
         {
-            _genericRepositorio = genericRepositorio;
         }
 
         public async Task<List<Categoria>> ListaCategoriasAsync()
         {
-            var listaCategorias = await _genericRepositorio.Consultar();
-            return listaCategorias.ToList();
+            try
+            {
+                var queryCategoria = Consultar();
+                var listaCategorias = await queryCategoria.ToListAsync();
+                return listaCategorias;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

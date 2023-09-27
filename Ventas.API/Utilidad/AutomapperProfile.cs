@@ -58,6 +58,10 @@ namespace Ventas.API.Utilidad
                 .ForMember(destino =>
                     destino.RolDescripcion,
                     opt => opt.MapFrom(origen => origen.IdRolNavigation.Nombre)
+                 )
+                .ForMember(destino =>
+                    destino.IdUsuario,
+                    opt => opt.MapFrom(origen => origen.Id)
                  );
             #endregion Usuario
 

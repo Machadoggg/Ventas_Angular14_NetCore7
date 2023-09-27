@@ -9,10 +9,10 @@ namespace Ventas.BusinessLogicLayer.Ventas
     public class VentaManager : IVentaManager
     {
         private readonly IVentaRepository _ventaRepository;
-        private readonly IGenericRepository<DetalleVenta> _detalleVentaRepositorio;
+        private readonly IProductoRepository<DetalleVenta> _detalleVentaRepositorio;
         private readonly IMapper _mapper;
 
-        public VentaManager(IVentaRepository ventaRepository, IGenericRepository<DetalleVenta> detalleVentaRepositorio, IMapper mapper)
+        public VentaManager(IVentaRepository ventaRepository, IProductoRepository<DetalleVenta> detalleVentaRepositorio, IMapper mapper)
         {
             _ventaRepository = ventaRepository;
             _detalleVentaRepositorio = detalleVentaRepositorio;
@@ -38,7 +38,7 @@ namespace Ventas.BusinessLogicLayer.Ventas
         }
         public async Task<List<Venta>> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin)
         {
-            IQueryable<Venta> query = await _ventaRepository.Consultar();
+            IQueryable<Venta> query = _ventaRepository.Consultar();
             var listaResultado = new List<Venta>();
 
             try
@@ -78,7 +78,7 @@ namespace Ventas.BusinessLogicLayer.Ventas
 
         public async Task<List<Reporte>> Reporte(string fechaInicio, string fechaFin)
         {
-            IQueryable<DetalleVenta> query = await _detalleVentaRepositorio.Consultar();
+            IQueryable<DetalleVenta> query = _detalleVentaRepositorio.Consultar();
             var listaResultado = new List<DetalleVenta>();
 
             try
