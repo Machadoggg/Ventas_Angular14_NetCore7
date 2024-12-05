@@ -1,4 +1,6 @@
+using System.Runtime.CompilerServices;
 using Ventas.API.Utilidad;
+using Ventas.API.Modules;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,16 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.InyectarDependencias(builder.Configuration);
+builder.Services.AddFeature(builder.Configuration);
 
-builder.Services.AddCors(options => {
-    options.AddPolicy("NuevaPolitica", app => {
-        app.AllowAnyOrigin()
-        .AllowAnyHeader()
-        .AllowAnyMethod();
-    });
-});
 
 var app = builder.Build();
 
