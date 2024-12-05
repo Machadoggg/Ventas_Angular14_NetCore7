@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 using Ventas.API.Utilidad;
-using Ventas.API.Modules;
+using Ventas.API.Modules.Feature;
 
 
 var builder = WebApplication.CreateBuilder(args);
